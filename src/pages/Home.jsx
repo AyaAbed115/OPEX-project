@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; // eslint-disable-line no-unused-vars
 import { useLanguage } from "../context/useLanguage";
 import texts from "../language/text";
 import picture1 from '../assets/picture3.jpg';
@@ -38,14 +38,22 @@ export default function Home() {
     visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } }
   };
 
-  const valueItemVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "backOut" } },
-    hover: { scale: 1.05, x: 10, transition: { duration: 0.3 } }
-  };
-
-  const pulseAnimation = {
-    animate: { scale: [1, 1.2, 1], transition: { duration: 2, repeat: Infinity, ease: "easeInOut" } }
+  const valueCardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({ 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.6, 
+        delay: i * 0.1,
+        ease: "backOut"
+      } 
+    }),
+    hover: { 
+      scale: 1.05,
+      y: -5,
+      transition: { duration: 0.3 } 
+    }
   };
 
   return (
@@ -68,7 +76,7 @@ export default function Home() {
       </motion.div>
 
       {/* Main Content - Vertical Stack with Zig-Zag */}
-      <div className="w-full max-w-5xl mx-auto">
+      <div className="w-full max-w-6xl mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -78,24 +86,23 @@ export default function Home() {
         >
           {sections.map((section, index) => (
             <motion.div
-  key={index}
-  variants={ovalCardVariants}
-  className={`group relative flex 
-    ${
-      lang === "ar"
-        ? index % 2 === 0
-           ? "justify-start md:pl-60"
-          : "justify-end md:pr-60"
-        : index % 2 === 0
-          ? "justify-end md:pr-60"
-          : "justify-start md:pl-60"
-    } 
-    items-center`
-  }
->
-
+              key={index}
+              variants={ovalCardVariants}
+              className={`group relative flex 
+                ${
+                  lang === "ar"
+                    ? index % 2 === 0
+                       ? "justify-start md:pl-60"
+                      : "justify-end md:pr-60"
+                    : index % 2 === 0
+                      ? "justify-end md:pr-60"
+                      : "justify-start md:pl-60"
+                } 
+                items-center`
+              }
+            >
               {/* Oval Card Container */}
-              <div className="relative w-full max-w-5xl">
+              <div className="relative w-full max-w-6xl">
                 {/* Outer Glow Effect */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-[#cc5308] to-orange-400 rounded-[60px] blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-500"
@@ -104,7 +111,11 @@ export default function Home() {
                 />
                 
                 {/* Main Oval Card */}
-                <div className="relative w-full min-h-[100px] bg-white/10 backdrop-blur-md rounded-[70px] border-2 border-white/20 hover:border-[#cc5308]/50 transition-all duration-500 overflow-visible flex items-center justify-center p-8">
+                <div className={`relative w-full ${
+                  section.title === (lang === "ar" ? "القيم" : "Core Values") 
+                    ? "min-h-[400px]" 
+                    : "min-h-[100px]"
+                } bg-white/10 backdrop-blur-md rounded-[70px] border-2 border-white/20 hover:border-[#cc5308]/50 transition-all duration-500 overflow-visible flex items-center justify-center p-8`}>
                   
                   {/* Animated Background Element */}
                   <motion.div
@@ -130,30 +141,74 @@ export default function Home() {
                     <h3 className="text-3xl font-bold text-white mb-6">{section.title}</h3>
 
                     {section.title === (lang === "ar" ? "القيم" : "Core Values") ? (
-                      <div className="space-y-4 w-full max-w-3xl mx-auto">
-                        {section.content.map((val, i) => (
-                          <motion.div
-                            key={i}
-                            variants={valueItemVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            whileHover="hover"
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/10 hover:border-[#cc5308]/50 hover:bg-white/15 transition-all duration-300 w-full"
-                          >
-                            <div className="flex items-center justify-start gap-4">
+                      <div className="w-full max-w-5xl mx-auto">
+                        {/* Values Grid Layout */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                          {section.content.map((val, i) => (
+                            <motion.div
+                              key={i}
+                              custom={i}
+                              variants={valueCardVariants}
+                              initial="hidden"
+                              whileInView="visible"
+                              whileHover="hover"
+                              viewport={{ once: true }}
+                              className="group/card relative"
+                            >
+                              {/* Main Value Card */}
+                              <div className="relative bg-gradient-to-br from-white/40 to-white/30 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/60 hover:shadow-3xl transition-all duration-500 h-full">
+                                
+                                {/* Accent Bar */}
+                                {/* <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#cc5308] to-orange-400 rounded-t-2xl" /> */}
+                                
+                                {/* Icon Container */}
+                                {/* <motion.div
+                                  className="w-16 h-16 bg-gradient-to-br from-[#001533] to-[#002a66] rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg"
+                                  whileHover={{ scale: 1.1, rotate: 5 }}
+                                  transition={{ duration: 0.3 }}
+                                >
+                                  <span className="text-white text-2xl">
+                                    {i % 4 === 0 ? "💎" : i % 4 === 1 ? "⚡" : i % 4 === 2 ? "🌟" : "🚀"}
+                                  </span>
+                                </motion.div> */}
+                                
+                                {/* Value Text */}
+                                <p className="text-[#001533] text-base font-semibold leading-relaxed text-center">
+                                  {val}
+                                </p>
+                                
+                                {/* Hover Effect Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#cc5308]/5 to-orange-400/5 rounded-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
+                              </div>
+                              
+                              {/* Floating Elements */}
                               <motion.div
-                                className="w-3 h-3 bg-[#001533] rounded-full flex-shrink-0"
-                                variants={pulseAnimation}
-                                animate="animate"
+                                className="absolute -top-2 -right-2 w-4 h-4 bg-[#cc5308] rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"
+                                animate={{ scale: [1, 1.5, 1] }}
+                                transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
                               />
-                              <p className={`text-white/90 text-base leading-relaxed flex-1 ${lang === "ar" ? "text-right" : "text-left"}`}>
-                                {val}
-                              </p>
-                            </div>
-                          </motion.div>
-                        ))}
+                              <motion.div
+                                className="absolute -bottom-2 -left-2 w-3 h-3 bg-orange-400 rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"
+                                animate={{ scale: [1, 1.3, 1] }}
+                                transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 + 0.5 }}
+                              />
+                            </motion.div>
+                          ))}
+                        </div>
+
+                        {/* Central Title for Values */}
+                        <motion.div
+                          initial={{ opacity: 0, y: -20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.3 }}
+                          className="mt-8 mb-6"
+                        >
+                          {/* <div className="inline-block bg-gradient-to-r from-[#cc5308] to-orange-500 rounded-full px-8 py-3 shadow-2xl">
+                            <h4 className="text-white font-bold text-xl">
+                              {lang === "ar" ? "أسس نجاحنا" : "Our Foundation"}
+                            </h4>
+                          </div> */}
+                        </motion.div>
                       </div>
                     ) : (
                       <motion.div
