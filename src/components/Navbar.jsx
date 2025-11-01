@@ -106,8 +106,7 @@ export default function Navbar() {
         {menuOpen && (
           <div
             className={`
-              absolute top-full left-0 right-0 mt-2 bg-[#001533]/95 backdrop-blur-lg
-              rounded-2xl shadow-2xl border border-[#cc5308]/30 mx-4 overflow-hidden
+              absolute top-full left-0 right-0 mt-2 bg-[#001533]/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-[#cc5308]/30 mx-4 overflow-hidden
               ${lang === "ar" ? "text-right" : "text-left"}
             `}
           >
@@ -117,7 +116,7 @@ export default function Navbar() {
                   key={item.key}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block px-4 py-3 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-transparent text-[#001533] hover:bg-white hover:text-white hover:border-white"
+                  className="block px-4 py-3 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-transparent text-[#cc5308] hover:bg-white hover:text-[#cc5308] hover:border-white"
                   style={{ 
                     animationDelay: `${index * 100}ms`,
                   }}
