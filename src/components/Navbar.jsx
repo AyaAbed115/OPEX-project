@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
 import logo3 from "../assets/logo3.png";
 import texts from "../language/text";
@@ -20,11 +21,13 @@ export default function Navbar() {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
+  // Navigation items used in desktop and mobile menus
   const navItems = [
-    { key: 'home', href: "#home" },
-    { key: 'services', href: "#services" },
-    { key: 'contact', href: "#contact" }
+    { key: 'home', href: '/' },
+    { key: 'services', href: '/services' },
+    { key: 'contact', href: '/contact' },
   ];
+
 
   return (
     <nav 
