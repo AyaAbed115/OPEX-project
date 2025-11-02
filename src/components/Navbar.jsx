@@ -67,14 +67,14 @@ export default function Navbar() {
           }`}>
             {navItems.map((item) => (
               <li key={item.key}>
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   className="relative px-4 py-2 rounded-xl transition-all duration-300 group text-[#001533] hover:text-white hover:bg-white/20"
                 >
                   {texts[lang][item.key]}
                   {/* Animated underline */}
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#001533] transition-all duration-300 group-hover:w-4/5 group-hover:left-1/5"></span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -115,9 +115,9 @@ export default function Navbar() {
           >
             <div className="p-4 space-y-3">
               {navItems.map((item, index) => (
-                <a
+                <Link
                   key={item.key}
-                  href={item.href}
+                  to={item.href}
                   onClick={() => setMenuOpen(false)}
                   className="block px-4 py-3 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-transparent text-[#cc5308] hover:bg-white hover:text-[#cc5308] hover:border-white"
                   style={{ 
@@ -125,7 +125,7 @@ export default function Navbar() {
                   }}
                 >
                   {texts[lang][item.key]}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
