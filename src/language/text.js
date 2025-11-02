@@ -121,7 +121,35 @@ ar: {
         title: "قرارات تعتمد على البيانات",
         description: "لوحات معلومات للإنتاجية والتكلفة والصحة والسلامة."
       }
-    ]
+    ], 
+    industriesTitle: "القطاعات التي نخدمها",
+    industriesList: [
+      "النفط والغاز / البتروكيماويات",
+      "المعادن والتعدين",
+      "الطاقة والمرافق",
+      "التصنيع والمدن الصناعية",
+      "البنية التحتية والخدمات البلدية"
+    ],
+    saudiVisionTitle: "التوافق مع رؤية السعودية",
+saudiVisionList: [
+  {
+    title: "القيمة المحلية والوظائف",
+    description: "نعطي الأولوية للمواهب السعودية والموردين المحليين.",
+  },
+  {
+    title: "التنافسية الصناعية",
+    description: "تشغيل وصيانة موثوقة تعزز الإنتاجية وتقلل التوقف.",
+  },
+  {
+    title: "الاستدامة",
+    description: "تميز في الصحة والسلامة والبيئة، وتقليل الهدر وزيادة كفاءة الطاقة.",
+  },
+  {
+    title: "الانتشار العالمي من السعودية",
+    description: "نبني قدرات قابلة للتصدير وشراكات عبر الحدود.",
+  },
+],
+
 },
 en: {
     home: "Home",
@@ -245,7 +273,34 @@ en: {
         title: "Data-Driven Decisions",
         description: "Dashboards for productivity, cost, and HSE."
       }
-    ]
+    ],
+    industriesTitle: "Industries We Serve",
+    industriesList: [
+      "Oil & Gas / Petrochemicals",
+      "Metals & Mining",
+      "Power & Utilities",
+      "Manufacturing & Industrial Parks",
+      "Infrastructure & Municipal Services"
+    ],
+    saudiVisionTitle: "Alignment with Saudi Vision",
+saudiVisionList: [
+  {
+    title: "Local Value & Jobs",
+    description: "Prioritize Saudi talent and local suppliers.",
+  },
+  {
+    title: "Industrial Competitiveness",
+    description: "Reliable O&M boosts uptime and productivity.",
+  },
+  {
+    title: "Sustainability",
+    description: "Excellence in HSE, less waste, energy efficiency.",
+  },
+  {
+    title: "Global Reach from KSA",
+    description: "Build exportable capabilities and cross-border partnerships.",
+  },
+],
   },
 };
 
