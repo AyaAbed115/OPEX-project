@@ -149,6 +149,68 @@ saudiVisionList: [
     description: "نبني قدرات قابلة للتصدير وشراكات عبر الحدود.",
   },
 ],
+processTitle: "عمليتنا العامة",
+processSteps: [
+  {
+    title: "فهم الاحتياجات",
+    description: "تحديد المتطلبات، وتوضيح النطاق، وضمان السرية.",
+    icon: "fa-solid fa-lightbulb",
+  },
+  {
+    title: "تصميم الحل",
+    description: "زيارات ميدانية، جمع البيانات، تقييم المخاطر، اقتراح الحل.",
+    icon: "fa-solid fa-pen-ruler",
+  },
+  {
+    title: "الاتفاق والتخطيط",
+    description: "تحديد التسليمات، وضبط الجداول الزمنية، وتأكيد النطاق.",
+    icon: "fa-solid fa-file-contract",
+  },
+  {
+    title: "التنفيذ والمراقبة",
+    description: "الإشراف على التقدم، وتقييم الأداء، وضمان الجودة.",
+    icon: "fa-solid fa-gears",
+  },
+  {
+    title: "الإنجاز والدعم",
+    description: "تسليم النتائج، وتقديم التدريب، والدعم المستمر.",
+    icon: "fa-solid fa-shield-halved",
+  },
+],
+isoTitle: "خارطة الجودة والسلامة والمعايير الدولية (ISO)",
+qualityPolicy: {
+  title: "سياسة الجودة",
+  text: "التسليم الصحيح من أول مرة، الالتزام بالعقود، رضا العملاء، والتحسين المستمر.",
+},
+hsePolicy: {
+  title: "سياسة السلامة والصحة والبيئة",
+  text: "صفر إصابات، الالتزام بالمعايير السعودية ومعايير العملاء، مدعوم بالتدريب ومعدات السلامة وثقافة الوقاية.",
+},
+isoRoadmap: {
+  title: "خارطة المعايير الدولية (ISO)",
+  items: [
+    { label: "ISO 9001 (إدارة الجودة):", desc: "رسم العمليات، التدقيق، والمراجعات." },
+    { label: "ISO 45001 (السلامة والصحة المهنية):", desc: "التحكم في المخاطر، والاستعداد للطوارئ." },
+  ],
+  items2: [
+    { label: "ISO 14001 (البيئة):", desc: "تسجيل التأثيرات، والتحكم في النفايات والانبعاثات." },
+  ],
+},
+timeline: [
+  { title: "تقييم الفجوات" },
+  { title: "التوثيق" },
+  { title: "التدريب" },
+  { title: "التدقيق الداخلي" },
+  { title: "الحصول على الشهادة" },
+],
+organization: {
+    title1: "القيادة",
+    text1: ".المدير التنفيذي مع مديري الوظائف (العمليات، السلامة والجودة، الموارد البشرية، سلسلة الإمداد، المالية، تطوير الأعمال والمبيعات",
+    title2: "التقارير",
+    text2: "أدوار واضحة ومسؤوليات محددة لكل عملية.",
+    title3: "الحوكمة",
+    text3: "مراجعات شهرية، واستراتيجية ربع سنوية، ولجنة للمخاطر والامتثال."
+  }
 
 },
 en: {
@@ -301,6 +363,68 @@ saudiVisionList: [
     description: "Build exportable capabilities and cross-border partnerships.",
   },
 ],
+processTitle: "Our General Process",
+processSteps: [
+  {
+    title: "Understand Needs",
+    description: "Capture requirements, define scope, ensure confidentiality.",
+    icon: "fa-solid fa-lightbulb",
+  },
+  {
+    title: "Designing the Solution",
+    description: "Site visits, data collection, risk assessment, proposal.",
+    icon: "fa-solid fa-pen-ruler",
+  },
+  {
+    title: "Agreement & Planning",
+    description: "Define deliverables, align timelines, and confirm scope.",
+    icon: "fa-solid fa-file-contract",
+  },
+  {
+    title: "Execution & Monitoring",
+    description: "Supervise progress, assess performance, ensure quality.",
+    icon: "fa-solid fa-gears",
+  },
+  {
+    title: "Completion & Support",
+    description: "Deliver results, provide training, and ongoing support.",
+    icon: "fa-solid fa-shield-halved",
+  },
+],
+isoTitle: "Quality, HSE & ISO Roadmap",
+qualityPolicy: {
+  title: "Quality Policy",
+  text: "Right-first-time delivery, contract compliance, client satisfaction, and continuous improvement.",
+},
+hsePolicy: {
+  title: "HSE Policy",
+  text: "Zero harm, compliance with Saudi and client standards, reinforced by training, PPE, and safety culture.",
+},
+isoRoadmap: {
+  title: "ISO Roadmap",
+  items: [
+    { label: "ISO 9001 (QMS):", desc: "Process mapping, audits, reviews." },
+    { label: "ISO 45001 (OH&S):", desc: "Risk control, emergency readiness." },
+  ],
+  items2: [
+    { label: "ISO 14001 (EMS):", desc: "Impact register, waste & emissions control." },
+  ],
+},
+timeline: [
+  { title: "Gap Assessment" },
+  { title: "Documentation" },
+  { title: "Training" },
+  { title: "Internal Audit" },
+  { title: "Certification" },
+],
+organization: {
+    title1: "Leadership",
+    text1: "CEO with functional managers (Operations, HSE, Quality, HR, Supply Chain, Finance, BD/Sales).",
+    title2: "Reporting",
+    text2: "Clear roles and RACI for each process.",
+    title3: "Governance",
+    text3: "Monthly reviews, quarterly strategy, risk & compliance committee."
+  }
   },
 };
 

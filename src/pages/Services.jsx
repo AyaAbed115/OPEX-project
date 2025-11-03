@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/useLanguage";
 import { useState } from "react";
@@ -7,6 +8,7 @@ import picture4 from "../assets/picture4.jpg"
 export default function Services() {
   const { lang } = useLanguage();
   const [expandedCards, setExpandedCards] = useState(new Set());
+  const [showTimeline, setShowTimeline] = useState(false);
 
   const services = texts[lang].servicesList;
 
@@ -510,6 +512,267 @@ export default function Services() {
         </motion.div>
       ))}
     </motion.div>
+  </div>
+</section>
+
+{/* Our general process */}
+<section
+  className="relative mt-1 py-28 bg-gradient-to-b from-[#001533] to-[#000c26] text-white"
+  dir={lang === "ar" ? "rtl" : "ltr"}
+>
+  <div className="max-w-7xl mx-auto px-6 text-center">
+    {/* Title */}
+    <motion.h2
+      className="text-4xl md:text-5xl text-white font-bold mb-10 bg-gradient-to-r from-[#cc5308] to-orange-400 bg-clip-text text-transparent"
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      {texts[lang].processTitle}
+    </motion.h2>
+
+    {/* Decorative Line */}
+    <motion.div
+      className="h-1 bg-gradient-to-r from-[#cc5308] to-orange-400 w-24 mx-auto rounded-full mb-16"
+      initial={{ width: 0 }}
+      whileInView={{ width: 96 }}
+      transition={{ duration: 0.7, delay: 0.3 }}
+    />
+
+    {/* Timeline */}
+    <div className="relative flex flex-col md:flex-row justify-between items-center gap-12 md:gap-6">
+      {/* Horizontal Line */}
+      <div className="absolute hidden md:block top-1/2 left-0 w-full h-1 bg-gradient-to-r from-[#cc5308] via-orange-400 to-[#cc5308] opacity-50"></div>
+
+      {texts[lang].processSteps.map((step, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.2 }}
+          className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 w-full md:w-[250px] text-center hover:border-[#cc5308]/40 hover:bg-[#cc5308]/10 transition-all duration-500"
+        >
+          {/* Icon */}
+          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-[#cc5308] to-orange-400 w-12 h-12 rounded-3xl flex items-center justify-center text-2xl shadow-lg">
+            <i className={step.icon}></i>
+          </div>
+
+          <h3 className="text-xl font-bold mt-8 mb-3">{step.title}</h3>
+          <p className="text-white/80 text-sm leading-relaxed">
+            {step.description}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Quality, HSE & ISO Roadmap */}
+ <section
+      className="relative mt-1 py-28 bg-gradient-to-b from-[#001533] to-[#000c26] text-white"
+      dir={lang === "ar" ? "rtl" : "ltr"}
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Title */}
+        <motion.h2
+          className="text-4xl md:text-5xl text-white font-bold mb-10 bg-gradient-to-r from-[#cc5308] to-orange-400 bg-clip-text text-center text-transparent"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {texts[lang].isoTitle}
+        </motion.h2>
+
+        {/* Decorative Line */}
+        <motion.div
+          className="h-1 bg-gradient-to-r from-[#cc5308] to-orange-400 w-24 mx-auto rounded-full mb-16"
+          initial={{ width: 0 }}
+          whileInView={{ width: 96 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        />
+
+        {/* Content Grid */}
+        <div className="grid md:grid-cols-2 gap-10 mb-10">
+          {/* Left Column */}
+          <div>
+            <h3 className="text-2xl font-semibold mb-4 text-[#cc5308]">
+              {texts[lang].qualityPolicy.title}
+            </h3>
+            <p className="text-white/80 mb-8">
+              {texts[lang].qualityPolicy.text}
+            </p>
+
+            <h3 className="text-2xl font-semibold mb-4 text-[#cc5308]">
+              {texts[lang].isoRoadmap.title}
+            </h3>
+            <ul className="space-y-3 text-white/80">
+              {texts[lang].isoRoadmap.items.map((item, i) => (
+                <li key={i}>
+                  <span className="font-bold text-white">{item.label}</span>{" "}
+                  {item.desc}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right Column */}
+          <div>
+            <h3 className="text-2xl font-semibold mb-4 text-[#cc5308]">
+              {texts[lang].hsePolicy.title}
+            </h3>
+            <p className="text-white/80 mb-8">{texts[lang].hsePolicy.text}</p>
+
+            <ul className="space-y-3 text-white/80">
+              {texts[lang].isoRoadmap.items2.map((item, i) => (
+                <li key={i}>
+                  <span className="font-bold text-white">{item.label}</span>{" "}
+                  {item.desc}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Read More Button */}
+        <motion.div
+          className="mt-10 flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <button
+            onClick={() => setShowTimeline(!showTimeline)}
+            className="relative px-8 py-3 text-lg font-semibold text-white rounded-full overflow-hidden group"
+          >
+            {/* Background Animation */}
+            <span className="absolute inset-0 bg-gradient-to-r from-[#cc5308] to-orange-500 transition-transform duration-500 scale-x-0 group-hover:scale-x-100 origin-left rounded-full"></span>
+
+            {/* Text */}
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+              {lang === "ar"
+                ? showTimeline
+                  ? "إخفاء التفاصيل"
+                  : "اعرف أكثر"
+                : showTimeline
+                ? "Hide Details"
+                : "Read More"}
+            </span>
+          </button>
+        </motion.div>
+
+        {/* Timeline - يظهر بعد الضغط */}
+        {showTimeline && (
+          <motion.div
+            className="relative flex flex-col md:flex-row justify-between items-center text-center mt-20"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Horizontal line */}
+            <div className="absolute hidden md:block top-1/2 left-0 w-full h-[3px] bg-gradient-to-r from-[#cc5308] via-orange-400 to-[#cc5308] opacity-50"></div>
+
+            {texts[lang].timeline.map((step, i) => (
+              <motion.div
+                key={i}
+                className="relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-5 w-full md:w-[220px] z-10 hover:border-[#cc5308]/40 hover:bg-[#cc5308]/10 transition-all duration-500"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+              >
+                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-[#cc5308] to-orange-400 w-12 h-12 rounded-full flex items-center justify-center text-lg shadow-lg font-bold">
+                  {i + 1}
+                </div>
+                <h4 className="text-lg font-semibold mt-8">{step.title}</h4>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </div>
+    </section>
+
+{/* Organization & Governance Section */}
+<section
+  className="relative mt-1 py-28 bg-gradient-to-b from-[#001533] to-[#000c26] text-white"
+  dir={lang === "ar" ? "rtl" : "ltr"}
+>
+  <div className="max-w-6xl mx-auto px-6 text-center">
+    {/* Title */}
+    <motion.h2
+      className="text-4xl md:text-5xl text-white font-bold mb-10 bg-gradient-to-r from-[#cc5308] to-orange-400 bg-clip-text text-transparent"
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      {lang === "ar" ? "الهيكل الإداري والحوكمة" : "Organization & Governance"}
+    </motion.h2>
+
+    {/* Decorative line */}
+    <motion.div
+      className="h-1 bg-gradient-to-r from-[#cc5308] to-orange-400 w-24 mx-auto rounded-full mb-16"
+      initial={{ width: 0 }}
+      whileInView={{ width: 96 }}
+      transition={{ duration: 0.7, delay: 0.3 }}
+    />
+
+    {/* Content */}
+    <div className="grid md:grid-cols-3 gap-10 text-left md:text-center">
+      {/* Leadership */}
+      <motion.div
+        className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-[#cc5308]/50 hover:border-[#cc5308]/40 hover:bg-[#cc5308]/10 transition-all duration-500"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="flex justify-center mb-5">
+          <div className="bg-gradient-to-b from-[#cc5308] to-orange-500 w-14 h-14 flex items-center justify-center rounded-full text-2xl font-bold shadow-lg">
+            🧑‍💼
+          </div>
+        </div>
+<h3 className="text-2xl font-semibold mb-4 text-[#cc5308]">
+  {texts[lang].organization.title1}
+</h3>
+<p className="text-white/80">{texts[lang].organization.text1}</p>
+
+      </motion.div>
+
+      {/* Reporting */}
+      <motion.div
+        className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-[#cc5308]/50 hover:border-[#cc5308]/40 hover:bg-[#cc5308]/10 transition-all duration-500"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div className="flex justify-center mb-5">
+          <div className="bg-gradient-to-b from-[#cc5308] to-orange-500 w-14 h-14 flex items-center justify-center rounded-full text-2xl font-bold shadow-lg">
+            📊
+          </div>
+        </div>
+        <h3 className="text-2xl font-semibold mb-4 text-[#cc5308]">
+  {texts[lang].organization.title2}
+</h3>
+<p className="text-white/80">{texts[lang].organization.text2}</p>
+
+      </motion.div>
+
+      {/* Governance */}
+      <motion.div
+        className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-[#cc5308]/50 hover:border-[#cc5308]/40 hover:bg-[#cc5308]/10 transition-all duration-500"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+      >
+        <div className="flex justify-center mb-5">
+          <div className="bg-gradient-to-b from-[#cc5308] to-orange-500 w-14 h-14 flex items-center justify-center rounded-full text-2xl font-bold shadow-lg">
+            🏛️
+          </div>
+        </div>
+   <h3 className="text-2xl font-semibold mb-4 text-[#cc5308]">
+  {texts[lang].organization.title3}
+</h3>
+<p className="text-white/80">{texts[lang].organization.text3}</p>
+
+      </motion.div>
+    </div>
   </div>
 </section>
 
