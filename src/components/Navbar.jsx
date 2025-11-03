@@ -28,6 +28,8 @@ export default function Navbar() {
     { key: 'contact', href: '/contact' },
   ];
 
+  // اختصار نص اللغة للموبايل
+  const shortLang = lang === "ar" ? "ع" : "en";
 
   return (
     <nav 
@@ -82,9 +84,10 @@ export default function Navbar() {
           {/* Language Toggle & Mobile Menu Button */}
           <div className={`flex items-center gap-3 ${lang === "ar" ? "flex-row-reverse" : ""}`}>
             {/* Language Toggle Button */}
+            {/* Desktop Version */}
             <button 
               onClick={toggleLang}
-              className="relative px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl flex items-center gap-2 group overflow-hidden bg-white/20 backdrop-blur-sm bg-[#001533] text-[#f8fafa] border border-white/30 hover:bg-white hover:text-[#001533]"
+              className="hidden md:flex relative px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl items-center gap-2 group overflow-hidden bg-white/20 backdrop-blur-sm bg-[#001533] text-[#f8fafa] border border-white/30 hover:bg-white hover:text-[#001533]"
             >
               <span className="flex items-center gap-2">
                 {texts[lang].langBtn}
@@ -95,10 +98,18 @@ export default function Navbar() {
               </span>
             </button>
 
+            {/* Mobile Version */}
+            <button 
+              onClick={toggleLang}
+              className="md:hidden relative w-10 h-10 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center text-white hover:bg-white/20 border border-white/30"
+            >
+              {shortLang}
+            </button>
+
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden p-2.5 rounded-xl transition-all duration-300 transform hover:scale-110 active:scale-95 text-[#001533] hover:bg-white/20"
+              className="md:hidden p-2.5 rounded-xl transition-all duration-300 transform hover:scale-110 active:scale-95 text-white hover:bg-white/20"
             >
               {menuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
