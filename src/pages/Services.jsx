@@ -395,7 +395,7 @@ export default function Services() {
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-[#cc5308] to-orange-400 rounded-full shadow-lg" />
 
           {/* Title */}
-          <h3 className="text-2xl font-bold text-white mb-4">
+          <h3 className="text-2xl font-bold text-[#cc5308] mb-4">
             {item.title}
           </h3>
 
@@ -503,7 +503,7 @@ export default function Services() {
           {/* Accent line */}
           <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[#cc5308] to-orange-400 rounded-l-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-          <h3 className="text-2xl font-bold mb-4 transition-colors duration-300">
+          <h3 className="text-2xl font-bold mb-4 text-[#cc5308] transition-colors duration-300">
             {item.title}
           </h3>
           <p className="text-white/80 leading-relaxed">
@@ -557,7 +557,7 @@ export default function Services() {
             <i className={step.icon}></i>
           </div>
 
-          <h3 className="text-xl font-bold mt-8 mb-3">{step.title}</h3>
+          <h3 className="text-xl font-bold mt-8 mb-3 text-[#cc5308]">{step.title}</h3>
           <p className="text-white/80 text-sm leading-relaxed">
             {step.description}
           </p>
@@ -568,7 +568,7 @@ export default function Services() {
 </section>
 
 {/* Quality, HSE & ISO Roadmap */}
- <section
+<section
       className="relative mt-1 py-28 bg-gradient-to-b from-[#001533] to-[#000c26] text-white"
       dir={lang === "ar" ? "rtl" : "ltr"}
     >
@@ -695,7 +695,7 @@ export default function Services() {
   className="relative mt-1 py-28 bg-gradient-to-b from-[#001533] to-[#000c26] text-white"
   dir={lang === "ar" ? "rtl" : "ltr"}
 >
-  <div className="max-w-6xl mx-auto px-6 text-center">
+  <div className="max-w-7xl mx-auto px-6 text-center">
     {/* Title */}
     <motion.h2
       className="text-4xl md:text-5xl text-white font-bold mb-10 bg-gradient-to-r from-[#cc5308] to-orange-400 bg-clip-text text-transparent"
@@ -706,7 +706,7 @@ export default function Services() {
       {lang === "ar" ? "الهيكل الإداري والحوكمة" : "Organization & Governance"}
     </motion.h2>
 
-    {/* Decorative line */}
+    {/* Decorative Line */}
     <motion.div
       className="h-1 bg-gradient-to-r from-[#cc5308] to-orange-400 w-24 mx-auto rounded-full mb-16"
       initial={{ width: 0 }}
@@ -714,64 +714,21 @@ export default function Services() {
       transition={{ duration: 0.7, delay: 0.3 }}
     />
 
-    {/* Content */}
-    <div className="grid md:grid-cols-3 gap-10 text-left md:text-center">
-      {/* Leadership */}
-      <motion.div
-        className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-[#cc5308]/50 hover:border-[#cc5308]/40 hover:bg-[#cc5308]/10 transition-all duration-500"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="flex justify-center mb-5">
-          <div className="bg-gradient-to-b from-[#cc5308] to-orange-500 w-14 h-14 flex items-center justify-center rounded-full text-2xl font-bold shadow-lg">
-            🧑‍💼
-          </div>
-        </div>
-<h3 className="text-2xl font-semibold mb-4 text-[#cc5308]">
-  {texts[lang].organization.title1}
-</h3>
-<p className="text-white/80">{texts[lang].organization.text1}</p>
+    {/* Cards Loop */}
+    <div className="relative flex flex-col md:flex-row justify-center items-center gap-12 md:gap-16">
 
-      </motion.div>
-
-      {/* Reporting */}
-      <motion.div
-        className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-[#cc5308]/50 hover:border-[#cc5308]/40 hover:bg-[#cc5308]/10 transition-all duration-500"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        <div className="flex justify-center mb-5">
-          <div className="bg-gradient-to-b from-[#cc5308] to-orange-500 w-14 h-14 flex items-center justify-center rounded-full text-2xl font-bold shadow-lg">
-            📊
-          </div>
-        </div>
-        <h3 className="text-2xl font-semibold mb-4 text-[#cc5308]">
-  {texts[lang].organization.title2}
-</h3>
-<p className="text-white/80">{texts[lang].organization.text2}</p>
-
-      </motion.div>
-
-      {/* Governance */}
-      <motion.div
-        className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-[#cc5308]/50 hover:border-[#cc5308]/40 hover:bg-[#cc5308]/10 transition-all duration-500"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        <div className="flex justify-center mb-5">
-          <div className="bg-gradient-to-b from-[#cc5308] to-orange-500 w-14 h-14 flex items-center justify-center rounded-full text-2xl font-bold shadow-lg">
-            🏛️
-          </div>
-        </div>
-   <h3 className="text-2xl font-semibold mb-4 text-[#cc5308]">
-  {texts[lang].organization.title3}
-</h3>
-<p className="text-white/80">{texts[lang].organization.text3}</p>
-
-      </motion.div>
+      {texts[lang].organization.cards.map((card, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.2 }}
+          className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 w-full md:w-[250px] text-center hover:border-[#cc5308]/40 hover:bg-[#cc5308]/10 transition-all duration-500"
+        >
+          <h3 className="text-xl font-bold mt-8 mb-3 text-[#cc5308]">{card.title}</h3>
+          <p className="text-white/80 text-sm leading-relaxed">{card.text}</p>
+        </motion.div>
+      ))}
     </div>
   </div>
 </section>

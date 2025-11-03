@@ -203,14 +203,37 @@ timeline: [
   { title: "التدقيق الداخلي" },
   { title: "الحصول على الشهادة" },
 ],
-organization: {
-    title1: "القيادة",
-    text1: ".المدير التنفيذي مع مديري الوظائف (العمليات، السلامة والجودة، الموارد البشرية، سلسلة الإمداد، المالية، تطوير الأعمال والمبيعات",
-    title2: "التقارير",
-    text2: "أدوار واضحة ومسؤوليات محددة لكل عملية.",
-    title3: "الحوكمة",
-    text3: "مراجعات شهرية، واستراتيجية ربع سنوية، ولجنة للمخاطر والامتثال."
-  }
+  organization: {
+    cards: [
+      {
+        icon: "fa-solid fa-user-tie",
+        title: "القيادة",
+        text: "المدير التنفيذي مع مديري الوظائف (العمليات، السلامة والجودة، الموارد البشرية، سلسلة الإمداد، المالية، تطوير الأعمال والمبيعات)."
+      },
+      {
+        icon: "fa-solid fa-chart-line",
+        title: "التقارير",
+        text: "أدوار واضحة ومسؤوليات محددة لكل عملية."
+      },
+      {
+        icon: "fa-solid fa-scale-balanced",
+        title: "الحوكمة",
+        text: "مراجعات شهرية، واستراتيجية ربع سنوية، ولجنة للمخاطر والامتثال."
+      }
+    ]
+  },
+  caseStudies: {
+    title: "دراسات الحالة والمراجع",
+    subtitle: "استعراض لأبرز النجاحات والإنجازات التي تعكس خبرتنا وجودتنا في التنفيذ.",
+    case1Title: "مشروع تحسين الكفاءة التشغيلية",
+    case1Text: "تم تنفيذ خطة شاملة لتحسين الأداء وزيادة كفاءة التشغيل بنسبة 30%.",
+    case2Title: "التوسع الإقليمي الناجح",
+    case2Text: "نجحنا في توسيع العمليات إلى أسواق جديدة مع الحفاظ على معايير الجودة.",
+    case3Title: "التحول الرقمي",
+    case3Text: "تم تطوير نظام رقمي متكامل أتاح سرعة اتخاذ القرار وتقليل الأخطاء التشغيلية.",
+    readMore: "عرض المزيد",
+    readLess: "عرض أقل"
+  },
 
 },
 en: {
@@ -278,7 +301,7 @@ en: {
         icon: "📦"
       },
       {
-        title: "Rapid Response & Mobilization",
+        title: "Quick Response and Implementation",
         description:
           "24/7 readiness for emergency repairs and shutdowns. Certified teams for remote or high-risk sites. Mobile units for on-site support and cleaning.",
         features: [
@@ -418,14 +441,37 @@ timeline: [
   { title: "Certification" },
 ],
 organization: {
-    title1: "Leadership",
-    text1: "CEO with functional managers (Operations, HSE, Quality, HR, Supply Chain, Finance, BD/Sales).",
-    title2: "Reporting",
-    text2: "Clear roles and RACI for each process.",
-    title3: "Governance",
-    text3: "Monthly reviews, quarterly strategy, risk & compliance committee."
-  }
+    cards: [
+      {
+        icon: "fa-solid fa-user-tie",
+        title: "Leadership",
+        text: "CEO with functional managers (Operations, HSE, Quality, HR, Supply Chain, Finance, BD/Sales)."
+      },
+      {
+        icon: "fa-solid fa-chart-line",
+        title: "Reporting",
+        text: "Clear roles and RACI for each process."
+      },
+      {
+        icon: "fa-solid fa-scale-balanced",
+        title: "Governance",
+        text: "Monthly reviews, quarterly strategy, risk & compliance committee."
+      }
+    ]
   },
+    caseStudies:{
+    title: "Case Studies & References",
+    subtitle: "Highlighting key achievements that reflect our expertise and execution quality.",
+    case1Title: "Operational Efficiency Improvement",
+    case1Text: "Implemented a comprehensive plan that boosted operational efficiency by 30%.",
+    case2Title: "Successful Regional Expansion",
+    case2Text: "Expanded operations into new markets while maintaining top-quality standards.",
+    case3Title: "Digital Transformation",
+    case3Text: "Developed an integrated digital system enabling faster decisions and fewer errors.",
+    readMore: "Read More",
+    readLess: "Read Less"
+}
+},
 };
 
 export default texts;

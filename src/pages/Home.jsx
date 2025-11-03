@@ -101,7 +101,7 @@ return (
                 section.title === (lang === "ar" ? "القيم" : "Core Values") 
                     ? "min-h-[400px]" 
                     : "min-h-[100px]"
-                } bg-white/10 backdrop-blur-md rounded-[70px] border-2 border-white/20 hover:border-[#cc5308]/50 transition-all duration-500 overflow-visible flex items-center justify-center p-8`}>
+                } bg-white/50 backdrop-blur-md rounded-[70px] border-2 border-white/20 hover:border-[#cc5308]/50 transition-all duration-500 overflow-visible flex items-center justify-center p-8`}>
 
                   {/* Animated Background Element */}
                 <motion.div className="absolute -inset-4 bg-gradient-to-r from-[#cc5308]/10 to-orange-400/10 rounded-[60px]"
@@ -119,7 +119,7 @@ return (
                     <span className="text-white font-bold text-xl">{index + 1}</span>
                     </motion.div>
 
-                    <h3 className="text-3xl font-bold text-white mb-6">{section.title}</h3>
+                    <h3 className="text-3xl font-bold text-[#cc5308] mb-6">{section.title}</h3>
 
                     {section.title === (lang === "ar" ? "القيم" : "Core Values") ? (
                     <div className="w-full max-w-5xl mx-auto">
@@ -170,7 +170,7 @@ return (
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="w-full max-w-3xl mx-auto"  >
-                        <div className="text-white/80 leading-relaxed text-lg text-center px-4"
+                        <div className="text-[#001533] leading-relaxed text-lg text-center px-4"
                         dangerouslySetInnerHTML={{
                             __html: typeof section.content === "string" ? section.content : "",
                         }} />
