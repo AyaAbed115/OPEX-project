@@ -7,7 +7,15 @@ export default function Footer() {
   const languageCtx = useLanguage();
   const lang = languageCtx?.lang ?? "en";
 
-  // no-op: scrollToTop was removed because it was unused; keep behavior simple in footer
+  // دالة لفتح تطبيق الهاتف
+  const handlePhoneClick = () => {
+    window.open("tel:+966580404997");
+  };
+
+  // دالة لفتح تطبيق البريد الإلكتروني
+  const handleEmailClick = () => {
+    window.open("mailto:a.alshahrani@opex-ksa.com");
+  };
 
   return (
     <footer className="relative bg-gradient-to-br from-[#001533] via-[#0a1f3a] to-[#cc5308]/20 overflow-hidden">
@@ -22,29 +30,35 @@ export default function Footer() {
         {/* Contact Info */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
           {/* Phone */}
-          <div className="flex items-center gap-3 group">
+          <button 
+            onClick={handlePhoneClick}
+            className="flex items-center gap-3 group cursor-pointer"
+          >
             <div className="w-10 h-10 bg-[#cc5308] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <Phone className="w-5 h-5 text-white" />
             </div>
             <span className="text-white font-medium text-lg">+966 58 040 4997</span>
-          </div>
+          </button>
 
           {/* Email */}
-          <div className="flex items-center gap-3 group">
+          <button 
+            onClick={handleEmailClick}
+            className="flex items-center gap-3 group cursor-pointer"
+          >
             <div className="w-10 h-10 bg-[#cc5308] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <Mail className="w-5 h-5 text-white" />
             </div>
             <span className="text-white font-medium text-lg">a.alshahrani@opex-ksa.com</span>
-          </div>
+          </button>
         </div>
 
         {/* Decorative Separator */}
-  <div className="h-px bg-gradient-to-r from-transparent via-[#cc5308] to-transparent mb-8" />
+        <div className="h-px bg-gradient-to-r from-transparent via-[#cc5308] to-transparent mb-8" />
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Copyright */}
-          <div className="" >
+          <div>
             <p className="text-gray-400 text-sm">
               {lang === "ar" 
                 ? "© ٢٠٢٤ أوپيكس. جميع الحقوق محفوظة." 
@@ -54,7 +68,7 @@ export default function Footer() {
           </div>
 
           {/* Brand Name */}
-          <div className="" >
+          <div>
             <p className="text-white font-bold text-lg">
               OPEX<span className="text-[#cc5308]">.</span>
             </p>
