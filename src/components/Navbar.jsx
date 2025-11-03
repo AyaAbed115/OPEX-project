@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
-import logo3 from "../assets/logo3.png";
+import logo from "../assets/logo.png";
 import texts from "../language/text";
 import { Menu, X, ChevronDown } from "lucide-react"; 
 
@@ -43,25 +43,32 @@ export default function Navbar() {
         <div className={`flex justify-between items-center ${lang === "ar" ? "flex-row-reverse" : ""}`}>
           
           {/* Logo Section */}
-          <div className="flex items-center gap-3">
-            {/* Mobile Logo */}
-            <div className="w-12 h-12 overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 p-1 block md:hidden transition-all duration-300 hover:scale-105">
-              <img 
-                src={logo3} 
-                alt="OPEX gear" 
-                className="w-full h-full object-cover object-left rounded-lg" 
-              />
-            </div>
+         <Link to="/" className="flex items-center hover:scale-105 transition-transform duration-300">
+  {/* Mobile Logo - Gear + PEX */}
+  <div className="flex items-center md:hidden">
+    <div className="w-12 h-12 overflow-hidden">
+      <img 
+        src={logo} 
+        alt="O" 
+        className="w-full h-full object-cover" 
+      />
+    </div>
+  </div>
 
-            {/* Desktop Logo */}
-            <div className="hidden md:block w-40 h-auto transition-all duration-300 hover:scale-105">
-              <img 
-                src={logo3} 
-                alt="OPEX Logo" 
-                className="w-full h-auto object-contain" 
-              />
-            </div>
-          </div>
+  {/* Desktop Logo - Full OPEX with gear as O */}
+  <div className="hidden md:flex items-center">
+    <div className="w-12 h-12 overflow-hidden">
+      <img 
+        src={logo} 
+        alt="O" 
+        className="w-full h-full object-cover" 
+      />
+    </div>
+    <span className="text-white font-bold text-3xl -ml-2 h-12  flex items-center text-white font-bold text-3xl flex items-center" style={{ marginTop: '-0.2rem' }}>
+      PEX
+    </span>
+  </div>
+</Link>
 
           {/* Desktop Navigation */}
           <ul className={`hidden md:flex gap-6 lg:gap-10 text-[18px] font-semibold ${

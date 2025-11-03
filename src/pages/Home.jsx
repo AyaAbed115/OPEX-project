@@ -57,7 +57,7 @@ const valueCardVariants = {
 };
 
 return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden"
+    <section className="relative min-h-screen flex flex-col items-center px-4 py-20 overflow-hidden"
     dir={lang === "ar" ? "rtl" : "ltr"}>
       {/* Background with Parallax Effect */}
     <motion.div className="absolute inset-0 w-full h-full -z-10"
@@ -67,6 +67,20 @@ return (
         <div className="w-full h-full bg-center bg-cover bg-no-repeat"
         style={{ backgroundImage: `url(${picture1})` }} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#001533]/70 to-black/60" />
+    </motion.div>
+
+      {/* العنوان الرئيسي في أعلى الصفحة */}
+    <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="w-full max-w-4xl mx-auto mb-20 mt-4"
+    >
+        <div className="border-2 border-white/80 px-8 py-6 rounded-xl backdrop-blur-sm bg-black/20">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center leading-tight">
+            {texts[lang].mainTitle}
+            </h2>
+        </div>
     </motion.div>
 
       {/* Main Content - Vertical Stack with Zig-Zag */}

@@ -5,7 +5,8 @@ ar: {
     services: "الخدمات",
     contact: "تواصل معنا",
     langBtn: "English",
-    overview: `
+    mainTitle: "حلول تشغيلية وخدمات صناعية متخصصة",
+    overview:`
     شركة <span class="font-bold text-[#cc5308]">OPEX</span> هي شركة سعودية متخصصة في التشغيل والصيانة، وتنفيذ المشاريع، والخدمات الصناعية. 
     نخدم عملاءنا في قطاعات التصنيع والطاقة والبنية التحتية، ونوفر حلولًا تعتمد على الموثوقية والسلامة والكفاءة.  
     <br /><br />
@@ -234,6 +235,39 @@ timeline: [
     readMore: "عرض المزيد",
     readLess: "عرض أقل"
   },
+    title: "مؤشرات الأداء الرئيسية",
+      categories: [
+        {
+          title: "تشغيلي",
+          icon: "⚙️",
+          indicators: ["الالتزام بجدول التسليم في الوقت المحدد", "معدل إعادة العمل", "كفاءة المعدات الشاملة"]
+        },
+        {
+          title: "الجودة",
+          icon: "🎯", 
+          indicators: ["تقارير عدم المطابقة لكل 1000 ساعة", "نسبة النجاح من أول مرة", "نتائج التدقيق"]
+        },
+        {
+          title: "السلامة والبيئة",
+          icon: "🛡️",
+          indicators: ["معدل الحوادث", "معدل الحوادث التي كادت تحدث", "إتمام التدريب"]
+        },
+        {
+          title: "سلسلة التوريد",
+          icon: "🔗",
+          indicators: ["التسليم في الوقت المحدد والكمية الصحيحة", "دقة المخزون", "وقت التسليم"]
+        },
+        {
+          title: "مالي",
+          icon: "💰",
+          indicators: ["هامش نمو الإيرادات", "أيام الذمم المدينة", "دورة النقد"]
+        },
+        {
+          title: "الأفراد",
+          icon: "👥",
+          indicators: ["الاحتفاظ بالموظفين", "معدل الاستخدام", "تغطية الكفاءات"]
+        }
+      ],
 
 },
 en: {
@@ -241,6 +275,7 @@ en: {
     services: "Services",
     contact: "Contact Us",
     langBtn: "العربية",
+    mainTitle: "OPEX operation solution and industrial services",
     overview: `
     <span class="font-bold text-[#cc5308]">OPEx Operation Solutions</span> 
     is a Saudi company specializing in Operations & Maintenance, Project Execution, and Industrial Services. 
@@ -470,7 +505,40 @@ organization: {
     case3Text: "Developed an integrated digital system enabling faster decisions and fewer errors.",
     readMore: "Read More",
     readLess: "Read Less"
-}
+},
+title: "Key Performance Indicators (KPIs)",
+      categories: [
+        {
+          title: "Operational",
+          icon: "⚙️",
+          indicators: ["On-time delivery schedule adherence", "% rework rate", "OEE"]
+        },
+        {
+          title: "Quality", 
+          icon: "🎯",
+          indicators: ["NCRs/1,000 hrs", "First-pass yield", "Audit scores"]
+        },
+        {
+          title: "HSE",
+          icon: "🛡️",
+          indicators: ["TRIR", "Near miss rate", "Training completion"]
+        },
+        {
+          title: "Supply Chain",
+          icon: "🔗",
+          indicators: ["OTIF", "Inventory accuracy", "Lead time"]
+        },
+        {
+          title: "Finance",
+          icon: "💰",
+          indicators: ["Revenue growth margin", "DSO", "Cash cycle"]
+        },
+        {
+          title: "People",
+          icon: "👥",
+          indicators: ["Retention", "Utilization", "Competency coverage"]
+        }
+      ],
 },
 };
 

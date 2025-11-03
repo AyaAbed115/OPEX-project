@@ -732,7 +732,95 @@ export default function Services() {
     </div>
   </div>
 </section>
+<section
+  className="relative mt-1 py-28 bg-gradient-to-b from-[#001533] to-[#000c26] text-white"
+  dir={lang === "ar" ? "rtl" : "ltr"}
+>
+  <div className="max-w-7xl mx-auto px-6 text-center">
+    {/* Title */}
+    <motion.h2
+      className="text-4xl md:text-5xl text-white font-bold mb-10 bg-gradient-to-r from-[#cc5308] to-orange-400 bg-clip-text text-transparent"
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      {lang === "ar" ? "مؤشرات الأداء الرئيسية" : "Key Performance Indicators (KPIs)"}
+    </motion.h2>
 
+    {/* Decorative Line */}
+    <motion.div
+      className="h-1 bg-gradient-to-r from-[#cc5308] to-orange-400 w-24 mx-auto rounded-full mb-16"
+      initial={{ width: 0 }}
+      whileInView={{ width: 96 }}
+      transition={{ duration: 0.7, delay: 0.3 }}
+    />
+
+    {/* KPI Cards Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+  {texts[lang].categories.map((category, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.15 }}
+          className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 text-center hover:border-[#cc5308]/40 hover:bg-[#cc5308]/10 transition-all duration-500 group"
+        >
+          {/* Category Icon */}
+          <div className="w-16 h-16 bg-gradient-to-br from-[#cc5308] to-orange-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+            {category.icon}
+          </div>
+
+          {/* Category Title */}
+          <h3 className="text-xl font-bold mb-4 text-[#cc5308]">{category.title}</h3>
+
+          {/* Indicators List */}
+          <ul className="space-y-3 text-start">
+            {category.indicators.map((indicator, idx) => (
+              <motion.li
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.15 + idx * 0.1 }}
+                className="flex items-center text-white/80 text-sm leading-relaxed group-hover:text-white/90 transition-colors duration-300"
+              >
+                {/* Bullet Point */}
+                <div className="w-2 h-2 bg-[#cc5308] rounded-full mr-3 group-hover:bg-orange-400 transition-colors duration-300" />
+                {indicator}
+              </motion.li>
+            ))}
+          </ul>
+
+          {/* Hover Effect */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#cc5308]/5 to-orange-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </motion.div>
+      ))}
+    </div>
+
+    {/* Bottom Decoration */}
+    <motion.div
+      className="flex justify-center space-x-3 mt-16"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.8 }}
+    >
+      {[...Array(3)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="w-2 h-2 bg-[#cc5308] rounded-full"
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            delay: i * 0.3
+          }}
+        />
+      ))}
+    </motion.div>
+  </div>
+</section>
     </>
 );
 }
