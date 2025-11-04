@@ -732,6 +732,8 @@ export default function Services() {
     </div>
   </div>
 </section>
+
+{/* Key Performance Indicators (KPIs) Section */}
 <section
   className="relative mt-1 py-28 bg-gradient-to-b from-[#001533] to-[#000c26] text-white"
   dir={lang === "ar" ? "rtl" : "ltr"}

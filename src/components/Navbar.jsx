@@ -64,7 +64,7 @@ export default function Navbar() {
         className="w-full h-full object-cover" 
       />
     </div>
-    <span className="text-white font-bold text-3xl -ml-2 h-12  flex items-center text-white font-bold text-3xl flex items-center" style={{ marginTop: '-0.2rem' }}>
+    <span className="text-white font-bold text-3xl -ml-2 h-10 flex items-center text-white font-bold text-3xl flex items-center">
       PEX
     </span>
   </div>

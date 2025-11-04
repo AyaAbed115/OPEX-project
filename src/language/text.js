@@ -268,6 +268,16 @@ timeline: [
           indicators: ["الاحتفاظ بالموظفين", "معدل الاستخدام", "تغطية الكفاءات"]
         }
       ],
+      titleContact: "تواصل معنا",
+      desc: "من فضلك املأ النموذج أدناه وسنعاود الاتصال بك قريبًا.",
+      name: "الاسم",
+      phone: "رقم الموبايل",
+      email: "البريد الإلكتروني",
+      address: "العنوان",
+      message: "الرسالة أو الاستفسار",
+      send: "إرسال",
+      success: "تم إرسال رسالتك بنجاح!",
+      fail: "حدث خطأ أثناء الإرسال، حاول مرة أخرى.",
 
 },
 en: {
@@ -539,6 +549,16 @@ title: "Key Performance Indicators (KPIs)",
           indicators: ["Retention", "Utilization", "Competency coverage"]
         }
       ],
+      titleContact: "Contact Us",
+      desc: "Please fill out the form below and we’ll get back to you soon.",
+      name: "Full Name",
+      phone: "Phone Number",
+      email: "Email Address",
+      address: "Address",
+      message: "Message or Inquiry",
+      send: "Send Message",
+      success: "Your message has been sent successfully!",
+      fail: "Something went wrong, please try again.",
 },
 };
 
