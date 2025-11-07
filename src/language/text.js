@@ -298,6 +298,274 @@ timeline: [
     description: "ينبع، المملكة العربية السعودية"
   }
 ],
+academyTitle: "أكاديمية أوبكس",
+academyHero: "تسعى OPEX Academy إلى بناء جيل من الكفاءات الصناعية الجاهزة للعمل والقيادة وريادة الأعمال في قطاع التشغيل والصيانة والخدمات الصناعية، عبر برامج تدريبية تطبيقية مبنية على احتياجات السوق الصناعي في المملكة والمنطقة.",
+    academyVision: "أن تكون الأكاديمية المرجع الأول في تدريب وتأهيل الكوادر الصناعية في العالم العربي، وربط التدريب بالوظائف والفرص الصناعية الفعلية.",
+    academyMission: "نقدم تدريبًا صناعيًا عمليًا عالي الجودة يربط المتدرب مباشرة بسوق العمل، ويحول المعرفة إلى مهارة، والمهارة إلى فرصة، والفرصة إلى قيمة اقتصادية مستدامة.",
+    googleSheetLink: "https://docs.google.com/spreadsheets/d/your-sheet-id-here",
+    
+    academyCategories: [
+      {
+        id: 1,
+        title: "الإدارة والتخطيط",
+        courses: [
+          {
+            id: 101,
+            name: "تخطيط المشاريع الصناعية",
+            target: "مهندسون، مخططو مشاريع، إداريون",
+            content: "تخطيط المشاريع – Gantt – إدارة المخاطر – KPIs",
+            outcomes: "إعداد خطة مشروع صناعي احترافية"
+          },
+          {
+            id: 102,
+            name: "تخطيط وجدولة الصيانة",
+            target: "مهندسو صيانة، مخططون",
+            content: "CMMS – أوامر العمل – MTTR/MTBF",
+            outcomes: "إعداد خطة صيانة سنوية كاملة"
+          },
+          {
+            id: 103,
+            name: "إدارة المستودعات والمخزون",
+            target: "أمناء مستودعات، مسؤولو سلاسل الإمداد",
+            content: "ABC Analysis – SAP/MM – تحسين المخزون",
+            outcomes: "خفض التالف وزيادة كفاءة المستودع"
+          },
+          {
+            id: 104,
+            name: "التحكم في التكاليف والميزانية في التشغيل",
+            target: "إداريون ماليون، مدراء تشغيل",
+            content: "CAPEX/OPEX – تحليل الانحراف – التقارير المالية",
+            outcomes: "إعداد ومتابعة ميزانية تشغيل"
+          },
+          {
+            id: 105,
+            name: "المشتريات والعقود الصناعية",
+            target: "موظفو مشتريات، مقاولون",
+            content: "RFQ – BOQ – عقود FIDIC – متطلبات الهيئة الملكية",
+            outcomes: "تنفيذ عمليات شراء صناعية باحترافية"
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "التأهيل الوظيفي العملي",
+        courses: [
+          {
+            id: 201,
+            name: "فني الصيانة الميكانيكية",
+            target: "خريجو دبلوم، باحثون عن عمل",
+            content: "المضخات – المحامل – أدوات الورش – الفك والتركيب",
+            outcomes: "جاهزية فني ميكانيكي ميداني"
+          },
+          {
+            id: 202,
+            name: "أساسيات الكهرباء الصناعية",
+            target: "حديثو التخرج، مساعدو فنيين",
+            content: "لوحات كهربائية – Motor Control – Safety",
+            outcomes: "دعم مباشر لفريق الكهرباء الصناعي"
+          },
+          {
+            id: 203,
+            name: "فني الأنابيب والتصنيع",
+            target: "فنيون ومساعدو فنيين",
+            content: "قراءة Isometric – القطع – اللحام – اختبار الضغط",
+            outcomes: "توظيف كـ Pipe Fitter صناعي"
+          },
+          {
+            id: 204,
+            name: "سلامة الرفع والتجهيز",
+            target: "رافعي أحمال، عمال مواقع",
+            content: "حساب الأحمال – إشارات الرفع – OSHA",
+            outcomes: "الحصول على شهادة رِغر معتمد"
+          },
+          {
+            id: 205,
+            name: "السقالات والوصول الصناعي",
+            target: "عمال مواقع، مقاولون",
+            content: "تركيب وتفتيش السقالات – اشتراطات السلامة",
+            outcomes: "جاهزية لوظائف Scaffolder صناعي"
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "التحول الرقمي الصناعي",
+        courses: [
+          {
+            id: 301,
+            name: "إنترنت الأشياء للصيانة الصناعية",
+            target: "مهندسون، مطورو حلول",
+            content: "حساسات إنترنت الأشياء – جمع البيانات – التحليل",
+            outcomes: "بناء نموذج صيانة تنبؤية"
+          },
+          {
+            id: 302,
+            name: "Power BI للوحات التحكم الصناعية",
+            target: "محللون ومدراء تشغيل",
+            content: "ربط الأنظمة – تصميم لوحات أداء – KPIs",
+            outcomes: "إنشاء Dashboard تشغيلي لإدارة المصنع"
+          },
+          {
+            id: 303,
+            name: "أساسيات التوأم الرقمي",
+            target: "مهندسون، مخططو مصانع",
+            content: "نمذجة – محاكاة – حالات استخدام عملية",
+            outcomes: "نموذج Digital Twin أولي"
+          },
+          {
+            id: 304,
+            name: "تنفيذ أنظمة CMMS/ERP",
+            target: "مسؤولو صيانة، ERP",
+            content: "SAP – Maximo – Odoo – الأصول",
+            outcomes: "تنفيذ نظام إدارة صيانة متكامل"
+          },
+          {
+            id: 305,
+            name: "الذكاء الاصطناعي في التشغيل والصيانة",
+            target: "محللون، مطورو ذكاء اصطناعي",
+            content: "خوارزميات تنبؤ – تحليل أعطال – تحسين الأداء",
+            outcomes: "نموذج ذكاء صناعي مرتبط ببيانات حقيقية"
+          },
+          {
+            id: 306,
+            name: "الطباعة ثلاثية الأبعاد لقطع الغيار",
+            target: "مهندسون، فنيون",
+            content: "إعادة الهندسة العكسية – المواد – التشغيل",
+            outcomes: "طباعة قطعة غيار صناعية فعلية"
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "القيادة الصناعية والإشراف",
+        courses: [
+          {
+            id: 401,
+            name: "مهارات المشرفين الميدانيين",
+            target: "مشرفون جدد",
+            content: "إدارة فرق – حل المشكلات – تقارير ميدانية",
+            outcomes: "قيادة فريق تشغيل فعّال"
+          },
+          {
+            id: 402,
+            name: "قيادة السلامة والبيئة والصحه",
+            target: "مسؤولو سلامة، قادة فرق",
+            content: "تصاريح العمل – تحليل حوادث – LOTO",
+            outcomes: "قيادة بيئة عمل آمنة"
+          },
+          {
+            id: 403,
+            name: "برنامج قائد الوردية",
+            target: "رؤساء ورديات",
+            content: "إدارة المناوبات – خطط الطوارئ – تسليم واستلام",
+            outcomes: "جاهزية قائد وردية صناعية"
+          },
+          {
+            id: 404,
+            name: "مؤشرات الأداء وإدارة الأداء",
+            target: "مدراء تشغيل، مشرفون",
+            content: "بناء مؤشرات أداء – تحليل الانحراف",
+            outcomes: "إعداد نظام متابعة أداء"
+          },
+          {
+            id: 405,
+            name: "مهارات التواصل الصناعي",
+            target: "إداريون ومشرفون",
+            content: "الاجتماعات – الإبلاغ – التصعيد الرسمي",
+            outcomes: "رفع كفاءة التواصل داخل المصانع"
+          },
+          {
+            id: 406,
+            name: "التصنيع الرشيد والكايزن للصيانة",
+            target: "مهندسو تحسين، مشرفون",
+            content: "5S – تقليل الفاقد – تحسين مستمر",
+            outcomes: "تطبيق كايزن داخل موقع صناعي"
+          }
+        ]
+      },
+      {
+        id: 5,
+        title: "ريادة الأعمال الصناعية",
+        courses: [
+          {
+            id: 501,
+            name: "ابدأ مشروع توريد العمالة",
+            target: "رواد أعمال، متقاعدون",
+            content: "تراخيص – عقود – تسعير – تأمين عمالة",
+            outcomes: "تأسيس شركة توريد عمالة صناعية"
+          },
+          {
+            id: 502,
+            name: "كيف تبدأ شركة خدمات صناعية",
+            target: "مقاولون جدد",
+            content: "دراسة جدوى – معدات – طاقم تشغيلي",
+            outcomes: "إعداد خطة إطلاق شركة صيانة وتشغيل"
+          },
+          {
+            id: 503,
+            name: "الامتياز الصناعي والمقاولة من الباطن",
+            target: "مقاولون، شركات ناشئة",
+            content: "عقود RC/سابك/أرامكو – التأهيل",
+            outcomes: "دخول سلاسل التوريد الصناعية"
+          },
+          {
+            id: 504,
+            name: "التمويل والمزايدة للمقاولين",
+            target: "مدراء ماليون، مؤسسو شركات",
+            content: "BOQ – ضمانات – إدارة كاش فلو",
+            outcomes: "التقديم على مشاريع دون تعثر مالي"
+          },
+          {
+            id: 505,
+            name: "بناء خطة نمو صناعية لـ 5 سنوات",
+            target: "أصحاب شركات ناشئة",
+            content: "استراتيجية توسع – CAPEX/OPEX – فريق",
+            outcomes: "خارطة نمو مدروسة قابلة للتنفيذ"
+          }
+        ]
+      },
+      {
+        id: 6,
+        title: "الامتثال والمعايير",
+        courses: [
+          {
+            id: 601,
+            name: "ISO 9001 للعمليات الصناعية",
+            target: "مسؤولو جودة",
+            content: "نظام إدارة جودة – التدقيق – الوثائق",
+            outcomes: "جاهزية شهادة ISO 9001"
+          },
+          {
+            id: 602,
+            name: "ISO 45001 والسلامة الصناعية",
+            target: "مسؤولو سلامة",
+            content: "تقييم مخاطر – متطلبات السلامة",
+            outcomes: "بناء نظام HSE مطابق للمعايير"
+          },
+          {
+            id: 603,
+            name: "ISO 14001 والامتثال البيئي",
+            target: "مسؤولو بيئة",
+            content: "تأثير بيئي – مخاطر – خطط تحسين",
+            outcomes: "نظام إدارة بيئية جاهز للتدقيق"
+          },
+          {
+            id: 604,
+            name: "امتثال متطلبات الهيئة الملكية",
+            target: "مقاولون، إداريون",
+            content: "اشتراطات الجبيل وينبع – IACS – التصاريح",
+            outcomes: "امتثال كامل لأنظمة RC"
+          },
+          {
+            id: 605,
+            name: "تقييم المقاولين والتدقيق",
+            target: "مشرفو تشغيل، QC",
+            content: "تقييم مقاولين – تقارير – زيارات ميدانية",
+            outcomes: "القدرة على تنفيذ Audit احترافي"
+          }
+        ]
+      },
+    ],
 
 
 },
@@ -600,7 +868,274 @@ title: "Key Performance Indicators (KPIs)",
     description: "Yanbu, Saudi Arabia"
   }
 ],
-
+academyTitle: "OPEX Academy",
+academyHero: "OPEX Academy aims to build a generation of industrial competencies ready for work, leadership, and entrepreneurship in the operations, maintenance, and industrial services sector, through applied training programs based on the needs of the industrial market in the Kingdom and the region.",
+    academyVision: "To be the primary reference in training and qualifying industrial cadres in the Arab world, linking training with actual industrial jobs and opportunities.",
+    academyMission: "We provide high-quality practical industrial training that directly connects trainees to the job market, transforming knowledge into skills, skills into opportunities, and opportunities into sustainable economic value.",
+    googleSheetLink: "https://docs.google.com/spreadsheets/d/your-sheet-id-here",
+    
+    academyCategories: [
+      {
+        id: 1,
+        title: "Administration & Planning",
+        courses: [
+          {
+            id: 101,
+            name: "Industrial Project Planning",
+            target: "Engineers, Project Planners, Administrators",
+            content: "Project Planning - Gantt - Risk Management - KPIs",
+            outcomes: "Prepare a professional industrial project plan"
+          },
+          {
+            id: 102,
+            name: "Maintenance Planning & Scheduling",
+            target: "Maintenance Engineers, Planners",
+            content: "CMMS - Work Orders - MTTR/MTBF",
+            outcomes: "Prepare a complete annual maintenance plan"
+          },
+          {
+            id: 103,
+            name: "Warehouse & Inventory Management",
+            target: "Warehouse Keepers, Supply Chain Officers",
+            content: "ABC Analysis - SAP/MM - Inventory Optimization",
+            outcomes: "Reduce waste and increase warehouse efficiency"
+          },
+          {
+            id: 104,
+            name: "Cost & Budget Control in Operations",
+            target: "Financial Administrators, Operations Managers",
+            content: "CAPEX/OPEX - Variance Analysis - Financial Reports",
+            outcomes: "Prepare and monitor operating budget"
+          },
+          {
+            id: 105,
+            name: "Industrial Procurement & Contracts",
+            target: "Procurement Staff, Contractors",
+            content: "RFQ - BOQ - FIDIC Contracts - Royal Commission Requirements",
+            outcomes: "Execute industrial procurement operations professionally"
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Job-Ready Practical",
+        courses: [
+          {
+            id: 201,
+            name: "Mechanical Maintenance Technician",
+            target: "Diploma Graduates, Job Seekers",
+            content: "Pumps - Bearings - Workshop Tools - Assembly & Disassembly",
+            outcomes: "Field mechanical technician readiness"
+          },
+          {
+            id: 202,
+            name: "Industrial Electrical Basics",
+            target: "Recent Graduates, Technician Assistants",
+            content: "Electrical Panels - Motor Control - Safety",
+            outcomes: "Direct support for industrial electrical team"
+          },
+          {
+            id: 203,
+            name: "Pipe Fitter & Fabrication",
+            target: "Technicians and Assistant Technicians",
+            content: "Isometric Reading - Cutting - Welding - Pressure Testing",
+            outcomes: "Employment as industrial Pipe Fitter"
+          },
+          {
+            id: 204,
+            name: "Rigger & Lifting Safety",
+            target: "Lift Operators, Site Workers",
+            content: "Load Calculations - Lifting Signals - OSHA",
+            outcomes: "Obtain certified rigger certificate"
+          },
+          {
+            id: 205,
+            name: "Scaffolding & Industrial Access",
+            target: "Site Workers, Contractors",
+            content: "Scaffolding Installation & Inspection - Safety Requirements",
+            outcomes: "Readiness for Scaffolder industrial jobs"
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Industrial Digital Transformation",
+        courses: [
+          {
+            id: 301,
+            name: "IoT for Industrial Maintenance",
+            target: "Engineers, Solution Developers",
+            content: "IoT Sensors - Data Collection - Analysis",
+            outcomes: "Build predictive maintenance model"
+          },
+          {
+            id: 302,
+            name: "Power BI for Industrial Dashboards",
+            target: "Analysts and Operations Managers",
+            content: "System Integration - Dashboard Design - KPIs",
+            outcomes: "Create operational dashboard for plant management"
+          },
+          {
+            id: 303,
+            name: "Digital Twin Fundamentals",
+            target: "Engineers, Plant Planners",
+            content: "Modeling - Simulation - Practical Use Cases",
+            outcomes: "Initial Digital Twin model"
+          },
+          {
+            id: 304,
+            name: "CMMS/ERP Implementation",
+            target: "Maintenance Officers, ERP",
+            content: "SAP - Maximo - Odoo - Assets",
+            outcomes: "Implement integrated maintenance management system"
+          },
+          {
+            id: 305,
+            name: "AI in Operations & Maintenance",
+            target: "Analysts, AI Developers",
+            content: "Prediction Algorithms - Failure Analysis - Performance Optimization",
+            outcomes: "AI industrial model linked to real data"
+          },
+          {
+            id: 306,
+            name: "3D Printing for Spare Parts",
+            target: "Engineers, Technicians",
+            content: "Reverse Engineering - Materials - Operation",
+            outcomes: "Print actual industrial spare part"
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "Industrial Leadership & Supervisory",
+        courses: [
+          {
+            id: 401,
+            name: "Frontline Supervisor Skills",
+            target: "New Supervisors",
+            content: "Team Management - Problem Solving - Field Reports",
+            outcomes: "Lead effective operations team"
+          },
+          {
+            id: 402,
+            name: "HSE Leadership & Culture",
+            target: "Safety Officers, Team Leaders",
+            content: "Permit to Work - Incident Analysis - LOTO",
+            outcomes: "Lead safe work environment"
+          },
+          {
+            id: 403,
+            name: "Shift Leader Program",
+            target: "Shift Supervisors",
+            content: "Shift Management - Emergency Plans - Handover",
+            outcomes: "Industrial shift leader readiness"
+          },
+          {
+            id: 404,
+            name: "KPI & Performance Management",
+            target: "Operations Managers, Supervisors",
+            content: "KPI Development - Variance Analysis",
+            outcomes: "Prepare performance monitoring system"
+          },
+          {
+            id: 405,
+            name: "Industrial Communication Skills",
+            target: "Administrators and Supervisors",
+            content: "Meetings - Reporting - Formal Escalation",
+            outcomes: "Improve communication efficiency within factories"
+          },
+          {
+            id: 406,
+            name: "Lean & Kaizen for Maintenance",
+            target: "Improvement Engineers, Supervisors",
+            content: "5S - Waste Reduction - Continuous Improvement",
+            outcomes: "Apply Kaizen in industrial site"
+          }
+        ]
+      },
+      {
+        id: 5,
+        title: "Industrial Entrepreneurship",
+        courses: [
+          {
+            id: 501,
+            name: "Start Your Manpower Supply Business",
+            target: "Entrepreneurs, Retirees",
+            content: "Licenses - Contracts - Pricing - Labor Insurance",
+            outcomes: "Establish industrial manpower supply company"
+          },
+          {
+            id: 502,
+            name: "How to Start an Industrial Services Co.",
+            target: "New Contractors",
+            content: "Feasibility Study - Equipment - Operational Team",
+            outcomes: "Prepare company launch plan for maintenance and operations"
+          },
+          {
+            id: 503,
+            name: "Industrial Franchise & Subcontracting",
+            target: "Contractors, Startups",
+            content: "RC/SABIC/Aramco Contracts - Qualification",
+            outcomes: "Enter industrial supply chains"
+          },
+          {
+            id: 504,
+            name: "Finance & Bidding for Contractors",
+            target: "Financial Managers, Company Founders",
+            content: "BOQ - Guarantees - Cash Flow Management",
+            outcomes: "Apply for projects without financial obstacles"
+          },
+          {
+            id: 505,
+            name: "Build a 5-Year Industrial Growth Plan",
+            target: "Startup Owners",
+            content: "Expansion Strategy - CAPEX/OPEX - Team",
+            outcomes: "Studied and executable growth roadmap"
+          }
+        ]
+      },
+      {
+        id: 6,
+        title: "Compliance & Standards",
+        courses: [
+          {
+            id: 601,
+            name: "ISO 9001 for Industrial Operations",
+            target: "Quality Officers",
+            content: "Quality Management System - Auditing - Documentation",
+            outcomes: "ISO 9001 certification readiness"
+          },
+          {
+            id: 602,
+            name: "ISO 45001 & Industrial HSE",
+            target: "Safety Officers",
+            content: "Risk Assessment - Safety Requirements",
+            outcomes: "Build HSE system compliant with standards"
+          },
+          {
+            id: 603,
+            name: "ISO 14001 & Environmental Compliance",
+            target: "Environmental Officers",
+            content: "Environmental Impact - Risks - Improvement Plans",
+            outcomes: "Environmental management system ready for audit"
+          },
+          {
+            id: 604,
+            name: "Royal Commission Compliance",
+            target: "Contractors, Administrators",
+            content: "Jubail and Yanbu Requirements - IACS - Permits",
+            outcomes: "Full compliance with RC regulations"
+          },
+          {
+            id: 605,
+            name: "Contractor Evaluation & Audits",
+            target: "Operations Supervisors, QC",
+            content: "Contractor Evaluation - Reports - Field Visits",
+            outcomes: "Ability to perform professional audits"
+          }
+        ]
+      }
+    ]
 },
 };
 

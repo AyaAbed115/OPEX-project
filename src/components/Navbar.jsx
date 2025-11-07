@@ -27,6 +27,7 @@ export default function Navbar() {
   { key: 'services', href: '/services', label: texts[lang]?.services || (lang === 'ar' ? 'الخدمات' : 'Services') },
   { key: 'whyOpex', href: '/why OPEX', label: texts[lang]?.whyOpexTitle || (lang === 'ar' ? 'لماذا أوبكس' : 'Why OPEX') },
   { key: 'aboutUs', href: '/about us', label: texts[lang]?.aboutUs || (lang === 'ar' ? 'عن الشركة' : 'About Us') },
+  { key: 'opex-academy', href: '/OpexAcademy', label: texts[lang]?.opexacademy || (lang === 'ar' ? 'أكاديمية OPEX' : 'OPEX Academy') },
   { key: 'contact', href: '/contact', label: texts[lang]?.contact || (lang === 'ar' ? 'تواصل معنا' : 'Contact Us') },
   ];
 
