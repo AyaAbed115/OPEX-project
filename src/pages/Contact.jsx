@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+// ensure linters detect motion usage when used in JSX
+void motion;
 import { useLanguage } from "../context/useLanguage";
 import texts from "../language/text";
 
@@ -32,7 +34,7 @@ export default function Contact() {
       // رابط الـ Web App من Google Apps Script
       const WEB_APP_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
       
-      const response = await fetch(WEB_APP_URL, {
+  await fetch(WEB_APP_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -64,50 +66,7 @@ export default function Contact() {
     }
   };
 
-  const contactInfo = {
-    en: [
-      {
-        icon: "📧",
-        title: "Email Us",
-        details: "a.alshahrani@opex-ksa.com",
-        description: "Send us an email anytime"
-      },
-      {
-        icon: "📞", 
-        title: "Call Us",
-        details: "+966 58 040 4997",
-        description: "Available during business hours"
-      },
-      {
-        icon: "📍",
-        title: "Visit Us",
-        details: "OPEX KSA Headquarters",
-        description: "Riyadh, Saudi Arabia"
-      }
-    ],
-    ar: [
-      {
-        icon: "📧",
-        title: "راسلنا",
-        details: "a.alshahrani@opex-ksa.com",
-        description: "أرسل لنا بريدًا إلكترونيًا في أي وقت"
-      },
-      {
-        icon: "📞",
-        title: "اتصل بنا",
-        details: "+966 58 040 4997",
-        description: "متاح خلال ساعات العمل"
-      },
-      {
-        icon: "📍",
-        title: "زورنا",
-        details: "مقر أوبكس السعودية",
-        description: "الرياض، المملكة العربية السعودية"
-      }
-    ]
-  };
-
-  const containerVariants = {
+const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -132,7 +91,7 @@ export default function Contact() {
   return (
     <div
       dir={isArabic ? "rtl" : "ltr"}
-      className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12 px-4"
+      className="min-h-screen bg-gradient-to-b from-[#001533] to-[#000c26] py-12 px-4"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
@@ -142,11 +101,11 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {t.titleContact}
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-[#cc5308] to-orange-500 mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             {t.desc}
           </p>
         </motion.div>
@@ -159,15 +118,14 @@ export default function Contact() {
             animate="visible"
             className="lg:col-span-1 space-y-8"
           >
-            {contactInfo[lang].map((item, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ 
-                  scale: 1.02,
-                  y: -5
-                }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group"
+        {texts[lang].contactInfo.map((item, i) => (
+          <motion.div
+            key={i}
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            whileHover={{ scale: 1.03, y: -5 }}
+                className="bg-white/70 rounded-[25px] border-2 border-white/70 p-6 hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="flex items-start space-x-4 rtl:space-x-reverse">
                   <div className="w-14 h-14 bg-gradient-to-br from-[#cc5308] to-orange-500 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">
@@ -180,7 +138,7 @@ export default function Contact() {
                     <p className="text-lg text-[#cc5308] font-semibold mb-1">
                       {item.details}
                     </p>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-[#001533] font-bold text-sm">
                       {item.description}
                     </p>
                   </div>
@@ -220,19 +178,19 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+            <div className="bg-white/70 rounded-[25px] border-2 border-white/70 overflow-hidden">
               <div className="p-8 md:p-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                <h2 className="text-3xl font-bold text-[#001533] mb-2">
                   {isArabic ? "أرسل لنا رسالة" : "Send Us a Message"}
                 </h2>
-                <p className="text-gray-600 mb-8">
+                <p className="text-[#001533] mb-8">
                   {isArabic ? "سنكون سعداء بالتواصل معك والرد على استفساراتك" : "We'd love to hear from you and answer your questions"}
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-[#001533] mb-2">
                         {t.name} *
                       </label>
                       <input
@@ -246,7 +204,7 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-[#001533] mb-2">
                         {t.phone} *
                       </label>
                       <input
@@ -262,7 +220,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-[#001533] mb-2">
                       {t.email} *
                     </label>
                     <input
@@ -277,7 +235,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-[#001533] mb-2">
                       {t.address}
                     </label>
                     <input
@@ -291,7 +249,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-[#001533] mb-2">
                       {t.message} *
                     </label>
                     <textarea

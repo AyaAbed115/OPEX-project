@@ -23,9 +23,11 @@ export default function Navbar() {
 
   // Navigation items used in desktop and mobile menus
   const navItems = [
-    { key: 'home', href: '/' },
-    { key: 'services', href: '/services' },
-    { key: 'contact', href: '/contact' },
+  { key: 'home', href: '/', label: texts[lang]?.home || (lang === 'ar' ? 'الصفحة الرئيسية' : 'Home') },
+  { key: 'services', href: '/services', label: texts[lang]?.services || (lang === 'ar' ? 'الخدمات' : 'Services') },
+  { key: 'whyOpex', href: '/why OPEX', label: texts[lang]?.whyOpexTitle || (lang === 'ar' ? 'لماذا أوبكس' : 'Why OPEX') },
+  { key: 'aboutUs', href: '/about us', label: texts[lang]?.aboutUs || (lang === 'ar' ? 'عن الشركة' : 'About Us') },
+  { key: 'contact', href: '/contact', label: texts[lang]?.contact || (lang === 'ar' ? 'تواصل معنا' : 'Contact Us') },
   ];
 
   // اختصار نص اللغة للموبايل
@@ -80,7 +82,7 @@ export default function Navbar() {
                   to={item.href}
                   className="relative px-4 py-2 rounded-xl transition-all duration-300 group text-[#001533] hover:text-white hover:bg-white/20"
                 >
-                  {texts[lang][item.key]}
+                  {item.label || texts[lang][item.key]}
                   {/* Animated underline */}
                   <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#001533] transition-all duration-300 group-hover:w-4/5 group-hover:left-1/5"></span>
                 </Link>
@@ -142,7 +144,7 @@ export default function Navbar() {
                     animationDelay: `${index * 100}ms`,
                   }}
                 >
-                  {texts[lang][item.key]}
+                  {item.label || texts[lang][item.key]}
                 </Link>
               ))}
             </div>

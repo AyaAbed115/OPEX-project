@@ -278,6 +278,27 @@ timeline: [
       send: "إرسال",
       success: "تم إرسال رسالتك بنجاح!",
       fail: "حدث خطأ أثناء الإرسال، حاول مرة أخرى.",
+      contactInfo: [
+  {
+    icon: "📧",
+    title: "راسلنا",
+    details: "a.alshahrani@opex-ksa.com",
+    description: "أرسل لنا بريدًا إلكترونيًا في أي وقت"
+  },
+  {
+    icon: "📞",
+    title: "اتصل بنا",
+    details: "+966 58 040 4997",
+    description: "متاح خلال ساعات العمل"
+  },
+  {
+    icon: "📍",
+    title: "زورنا",
+    details: "مقر أوبكس السعودية",
+    description: "ينبع، المملكة العربية السعودية"
+  }
+],
+
 
 },
 en: {
@@ -559,6 +580,27 @@ title: "Key Performance Indicators (KPIs)",
       send: "Send Message",
       success: "Your message has been sent successfully!",
       fail: "Something went wrong, please try again.",
+      contactInfo: [
+  {
+    icon: "📧",
+    title: "Email Us",
+    details: "a.alshahrani@opex-ksa.com",
+    description: "Send us an email anytime"
+  },
+  {
+    icon: "📞", 
+    title: "Call Us",
+    details: "+966 58 040 4997",
+    description: "Available during business hours"
+  },
+  {
+    icon: "📍",
+    title: "Visit Us",
+    details: "OPEX KSA Headquarters",
+    description: "Yanbu, Saudi Arabia"
+  }
+],
+
 },
 };
 
