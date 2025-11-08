@@ -12,8 +12,7 @@ export default function Services() {
   const services = texts[lang].servicesList;
 
   const toggleCard = (cardId) => {
-  console.log('toggleCard called for', cardId);
-  setSelectedCard(prev => (prev === cardId ? null : cardId));
+    setSelectedCard(prev => (prev === cardId ? null : cardId));
   };
 
   const containerVariants = {
@@ -66,20 +65,31 @@ export default function Services() {
   const featuresContainerVariants = {
     hidden: {
       opacity: 0,
-      y: 10,
-      transition: { duration: 0.25, ease: "easeInOut" }
+      height: 0,
+      marginTop: 0,
+      marginBottom: 0,
+      transition: { 
+        duration: 0.3, 
+        ease: "easeInOut"
+      }
     },
     visible: {
       opacity: 1,
-      y: 0,
-      transition: { duration: 0.35, ease: "easeOut", staggerChildren: 0.05 }
+      height: "auto",
+      marginTop: "1.5rem",
+      marginBottom: "1rem",
+      transition: { 
+        duration: 0.4, 
+        ease: "easeOut",
+        staggerChildren: 0.05
+      }
     }
   };
 
-return (
+  return (
     <>
       {/* Services Main Section */}
-    <section
+      <section
         className="relative min-h-screen flex items-center bg-gradient-to-b from-[#001533] to-[#000c26] justify-center text-[#001533] px-4 py-20 overflow-hidden"
         dir={lang === "ar" ? "rtl" : "ltr"}
       >
@@ -157,16 +167,24 @@ return (
                 variants={cardVariants}
                 whileHover="hover"
                 className="group relative"
+                layout
               >
                 {/* Card Glow Effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-[#cc5308] to-orange-400 rounded-3xl blur-lg opacity-0  transition-opacity duration-500 pointer-events-none"
+                  className="absolute inset-0 bg-gradient-to-r from-[#cc5308] to-orange-400 rounded-3xl blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
                   animate={{ scale: [1, 1.02, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 />
                 
-                {/* Main Service Card */}
-                <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl border-2 border-white/20 hover:border-[#cc5308]/50 hover:bg-[#cc5308]/10 transition-all duration-500 p-8 h-full flex flex-col overflow-visible">
+                {/* Main Service Card - هذا العنصر سيتوسع */}
+                <motion.div
+                  layout
+                  className="relative bg-white/10 backdrop-blur-xl rounded-3xl border-2 border-white/20 hover:border-[#cc5308]/50 hover:bg-[#cc5308]/10 transition-all duration-500 p-8 flex flex-col"
+                  animate={{
+                    height: selectedCard === index ? "auto" : "370px"
+                  }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
                   
                   {/* Animated Background Pattern */}
                   <motion.div
@@ -174,46 +192,50 @@ return (
                     animate={{ opacity: [0.1, 0.2, 0.1] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   />
+                  
                   {/* Service Icon */}
                   <motion.div
                     className="w-20 h-20 bg-gradient-to-br from-[#cc5308] to-orange-400 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-2xl mx-auto"
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.5 }}
-                >
+                  >
                     {service.icon}
-                </motion.div>
+                  </motion.div>
 
                   {/* Service Title */}
-                <motion.h3
+                  <motion.h3
                     className="text-2xl font-bold text-white mb-4 text-center group-hover:text-orange-200 transition-colors duration-300"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
                     {service.title}
-                </motion.h3>
+                  </motion.h3>
 
                   {/* Service Description */}
-                <motion.p
-                    className="text-white/80 leading-relaxed mb-6 flex-grow text-center"
+                  <motion.p
+                    className="text-white/80 leading-relaxed mb-6 text-center"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
                   >
                     {service.description}
-                </motion.p>
+                  </motion.p>
 
                   {/* Features Section - Animated */}
-        <AnimatePresence>
-          {selectedCard === index && (
+                  <AnimatePresence>
+                    {selectedCard === index && (
                       <motion.div
                         variants={featuresContainerVariants}
                         initial="hidden"
                         animate="visible"
                         exit="hidden"
-                        className="absolute left-6 right-6 bottom-20 z-30 bg-white/5 backdrop-blur-lg rounded-xl p-4 shadow-lg"
+                        className="overflow-hidden"
                       >
-                        <div className="space-y-3 mb-0 border-t border-white/10 pt-3">
+                        <h4 className="text-lg font-bold text-white mb-3 text-center">
+                          {lang === "ar" ? "المميزات الرئيسية" : "Key Features"}
+                        </h4>
+                        <div className="space-y-2">
                           {service.features.map((feature, i) => (
                             <motion.div
                               key={i}
@@ -221,23 +243,26 @@ return (
                               variants={featureVariants}
                               initial="hidden"
                               animate="visible"
-                              className="flex items-center gap-3"
+                              className="flex items-start gap-3"
                             >
                               <motion.div
-                                className="w-2 h-2 bg-[#cc5308] rounded-full flex-shrink-0"
+                                className="w-2 h-2 bg-[#cc5308] rounded-full flex-shrink-0 mt-2"
                                 animate={{ scale: [1, 1.5, 1] }}
                                 transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
                               />
-                              <span className="text-white/90 text-sm">{feature}</span>
+                              <span className="text-white/90 text-sm flex-1">{feature}</span>
                             </motion.div>
                           ))}
                         </div>
                       </motion.div>
                     )}
-                </AnimatePresence>
+                  </AnimatePresence>
+
+                  {/* Spacer to push button to bottom */}
+                  <div className="flex-grow"></div>
 
                   {/* Toggle Button */}
-                <motion.div
+                  <motion.div
                     className="mt-auto"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -258,26 +283,26 @@ return (
                         : (lang === "ar" ? "عرض التفاصيل" : "View Details")
                       }
                     </motion.button>
-                </motion.div>
+                  </motion.div>
 
                   {/* Floating Elements */}
-                <motion.div   
+                  <motion.div   
                     className="absolute -top-2 -right-2 w-4 h-4 bg-[#cc5308] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     animate={{ scale: [1, 1.5, 1] }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-                />
-                <motion.div
+                  />
+                  <motion.div
                     className="absolute -bottom-2 -left-2 w-3 h-3 bg-orange-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     animate={{ scale: [1, 1.3, 1] }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 + 0.5 }}
-                />
-                </div>
-            </motion.div>
+                  />
+                </motion.div>
+              </motion.div>
             ))}
-        </motion.div>
+          </motion.div>
 
           {/* Extra Services Section */}
-<motion.div
+          <motion.div
             className="mt-20 text-center"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -306,10 +331,10 @@ return (
                 </motion.div>
               ))}
             </motion.div>
-</motion.div>
+          </motion.div>
 
           {/* Quality Assurance Section */}
-<motion.div
+          <motion.div
             className={`mt-16 flex flex-col md:flex-row items-center justify-center gap-6 max-w-4xl mx-auto text-white text-center md:text-start ${
               lang === "ar" ? "flex-row-reverse" : ""
             }`}
@@ -335,9 +360,9 @@ return (
             >
               {texts[lang].servicesNote}
             </motion.p>
-</motion.div>
+          </motion.div>
         </div>
-    </section>
+      </section>
     </>
-);
+  );
 }
