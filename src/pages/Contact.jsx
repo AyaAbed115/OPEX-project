@@ -149,7 +149,7 @@ const containerVariants = {
             {/* Quick Actions */}
             <motion.div
               variants={itemVariants}
-              className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+              className="bg-white/70 rounded-[25px] border-2 border-white/70 p-6 shadow-lg border-gray-100"
             >
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 {isArabic ? "اتصل بنا مباشرة" : "Quick Actions"}

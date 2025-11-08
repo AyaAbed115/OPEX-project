@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
 import logo from "../assets/logo.png";
 import texts from "../language/text";
@@ -46,7 +46,7 @@ export default function Navbar() {
         <div className={`flex justify-between items-center ${lang === "ar" ? "flex-row-reverse" : ""}`}>
           
           {/* Logo Section */}
-         <Link to="/" className="flex items-center hover:scale-105 transition-transform duration-300">
+        <Link to="/" className="flex items-center hover:scale-105 transition-transform duration-300">
   {/* Mobile Logo - Gear + PEX */}
   <div className="flex items-center md:hidden">
     <div className="w-12 h-12 overflow-hidden">
@@ -67,29 +67,31 @@ export default function Navbar() {
         className="w-full h-full object-cover" 
       />
     </div>
-    <span className="text-white font-bold text-3xl -ml-2 h-10 flex items-center text-white font-bold text-3xl flex items-center">
+    <span className="text-white font-bold text-3xl -ml-2 h-10 flex items-center">
       PEX
     </span>
   </div>
 </Link>
 
-          {/* Desktop Navigation */}
-          <ul className={`hidden md:flex gap-6 lg:gap-10 text-[18px] font-semibold ${
-            lang === "ar" ? "flex-row-reverse" : ""
-          }`}>
-            {navItems.map((item) => (
-              <li key={item.key}>
-                <Link
-                  to={item.href}
-                  className="relative px-4 py-2 rounded-xl transition-all duration-300 group text-[#001533] hover:text-white hover:bg-white/20"
-                >
-                  {item.label || texts[lang][item.key]}
-                  {/* Animated underline */}
-                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#001533] transition-all duration-300 group-hover:w-4/5 group-hover:left-1/5"></span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+{/* Desktop Navigation */}
+<ul className={`hidden md:flex gap-6 lg:gap-5 text-[18px] font-semibold ${lang === "ar" ? "flex-row-reverse" : ""}`}>
+  {navItems.map((item) => (
+    <li key={item.key}>
+      <NavLink
+        to={item.href}
+        className={({ isActive }) =>
+          `relative px-4 py-2 rounded-xl transition-all duration-300 group ${
+            isActive ? "text-white bg-[#001533]" : "text-[#001533] hover:text-white hover:bg-white/20"
+          }`
+        }
+      >
+        {item.label || texts[lang][item.key]}
+        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#001533] transition-all duration-300  group-hover:left-1/5"></span>
+      </NavLink>
+    </li>
+  ))}
+</ul>
+
 
           {/* Language Toggle & Mobile Menu Button */}
           <div className={`flex items-center gap-3 ${lang === "ar" ? "flex-row-reverse" : ""}`}>
