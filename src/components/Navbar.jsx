@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo11.png";
 import texts from "../language/text";
 import { Menu, X, ChevronDown } from "lucide-react"; 
 
@@ -59,18 +59,15 @@ export default function Navbar() {
   </div>
 
   {/* Desktop Logo - Full OPEX with gear as O */}
-  <div className="hidden md:flex items-center">
-    <div className="w-12 h-12 overflow-hidden">
-      <img 
-        src={logo} 
-        alt="O" 
-        className="w-full h-full object-cover" 
-      />
-    </div>
-    <span className="text-white font-bold text-3xl -ml-2 h-10 flex items-center">
-      PEX
-    </span>
+<div className="hidden md:flex items-center">
+  <div className="w-30 h-12 rounded-xl overflow-hidden">
+    <img 
+      src={logo} 
+      alt="O" 
+      className="w-full h-full object-cover scale-110" 
+    />
   </div>
+</div>
 </Link>
 
 {/* Desktop Navigation */}

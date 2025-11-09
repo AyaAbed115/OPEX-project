@@ -48,7 +48,7 @@ export default function Footer() {
             <div className="w-10 h-10 bg-[#cc5308] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <Mail className="w-5 h-5 text-white" />
             </div>
-            <span className="text-white font-medium text-lg">a.alshahrani@opex-ksa.com</span>
+            <span className="text-white font-medium text-lg">Info@opex-ksa.com</span>
           </button>
         </div>
 

@@ -282,7 +282,7 @@ timeline: [
   {
     icon: "📧",
     title: "راسلنا",
-    details: "a.alshahrani@opex-ksa.com",
+    details: "Info@opex-ksa.com",
     description: "أرسل لنا بريدًا إلكترونيًا في أي وقت"
   },
   {
@@ -852,7 +852,7 @@ title: "Key Performance Indicators (KPIs)",
   {
     icon: "📧",
     title: "Email Us",
-    details: "a.alshahrani@opex-ksa.com",
+    details: "Info@opex-ksa.com",
     description: "Send us an email anytime"
   },
   {

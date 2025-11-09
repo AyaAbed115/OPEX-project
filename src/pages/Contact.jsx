@@ -32,7 +32,7 @@ export default function Contact() {
 
     try {
       // رابط الـ Web App من Google Apps Script
-      const WEB_APP_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+      const WEB_APP_URL = "";
       
   await fetch(WEB_APP_URL, {
         method: 'POST',
@@ -282,6 +282,7 @@ const containerVariants = {
                     ) : (
                       <span>{t.send}</span>
                     )}
+                    
                   </motion.button>
                 </form>
 

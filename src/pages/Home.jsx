@@ -2,6 +2,7 @@ import { motion } from "framer-motion"; // eslint-disable-line no-unused-vars
 import { useLanguage } from "../context/useLanguage";
 import texts from "../language/text";
 import picture1 from '../assets/picture3.jpg';
+import picture2 from '../assets/logo12.png'
 
 export default function Home() {
 const { lang } = useLanguage();
@@ -70,18 +71,20 @@ return (
     </motion.div>
 
       {/* العنوان الرئيسي في أعلى الصفحة */}
-    <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="w-full max-w-4xl mx-auto mb-20 mt-4"
-    >
-        <div className="border-2 border-white/80 px-8 py-6 rounded-xl backdrop-blur-sm bg-black/20">
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-center leading-tight">
-            {texts[lang].mainTitle}
-            </h2>
-        </div>
-    </motion.div>
+<motion.div
+  initial={{ opacity: 0, y: -50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 0.3 }}
+  className="w-full max-w-4xl mx-auto mb-12 mt-8"
+>
+  <div className="px-4 py-3 rounded-2xl backdrop-blur-sm bg-white/5 flex justify-center items-center border border-white/10">
+    <img 
+      src={picture2} 
+      alt="Main Title" 
+      className="w-full max-h-48 object-scale-down"
+    />
+  </div>
+</motion.div>
 
       {/* Main Content - Vertical Stack with Zig-Zag */}
     <div className="w-full max-w-6xl mx-auto">
