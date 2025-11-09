@@ -75,7 +75,7 @@ return (
   initial={{ opacity: 0, y: -50 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 1, delay: 0.3 }}
-  className="w-full max-w-4xl mx-auto mb-12"
+  className="w-full max-w-5xl mx-auto mb-12"
 >
   <div className="px-4 py-3 rounded-2xl backdrop-blur-sm bg-white/5 flex justify-center items-center border border-white/10">
     <img 

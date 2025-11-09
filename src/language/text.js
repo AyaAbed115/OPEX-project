@@ -566,6 +566,31 @@ academyHero: "تسعى OPEX Academy إلى بناء جيل من الكفاءات
         ]
       },
     ],
+      joinUs: {
+      title: "انضم إلينا",
+      subtitle: "كن جزءاً من رحلتنا نحو التميز والنجاح",
+      employee: "موظف",
+      supplier: "مورد",
+      investor: "مستثمر",
+      shareThoughts: "شاركنا أفكارك",
+      interestText: "إذا كنت مهتماً بالانضمام إلينا كـ",
+      shareViaEmail: "شاركنا أفكارك عبر البريد الإلكتروني",
+      contactUs: "راسلنا على:",
+      responseTime: "سنرد عليك في أقرب وقت ممكن",
+      growth: {
+        title: "فرص نمو",
+        description: "انضم إلى فريق ديناميكي مع فرص تطور مستمر"
+      },
+      environment: {
+        title: "بيئة محفزة",
+        description: "عمل في بيئة محفزة تدعم الإبداع والابتكار"
+      },
+      cta: {
+        dontHesitate: "لا تتردد في التواصل معنا",
+        sendEmail: "إرسال بريد إلكتروني",
+        contactInfo: "معلومات الاتصال"
+      }
+    }
 
 
 },
@@ -1135,7 +1160,32 @@ academyHero: "OPEX Academy aims to build a generation of industrial competencies
           }
         ]
       }
-    ]
+    ],
+    joinUs: {
+      title: "Join Us",
+      subtitle: "Be part of our journey towards excellence and success",
+      employee: "Employee",
+      supplier: "Supplier", 
+      investor: "Investor",
+      shareThoughts: "Share Your Thoughts",
+      interestText: "If you are interested to join us as",
+      shareViaEmail: "share your thoughts on email",
+      contactUs: "Contact us at:",
+      responseTime: "We'll get back to you as soon as possible",
+      growth: {
+        title: "Growth Opportunities",
+        description: "Join a dynamic team with continuous growth opportunities"
+      },
+      environment: {
+        title: "Inspiring Environment", 
+        description: "Work in an inspiring environment that supports creativity and innovation"
+      },
+      cta: {
+        dontHesitate: "Don't hesitate to reach out to us",
+        sendEmail: "Send Email",
+        contactInfo: "Contact Info"
+      }
+    }
 },
 };
 

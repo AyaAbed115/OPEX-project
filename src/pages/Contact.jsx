@@ -162,7 +162,7 @@ const containerVariants = {
                   📞 {isArabic ? "اتصال فوري" : "Call Now"}
                 </a>
                 <a 
-                  href="mailto:a.alshahrani@opex-ksa.com"
+                  href="mailto:Info@opex-ksa.com"
                   className="flex items-center justify-center w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-300"
                 >
                   ✉️ {isArabic ? "إرسال بريد" : "Send Email"}

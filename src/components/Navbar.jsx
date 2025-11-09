@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
 import logo from "../assets/logo11.png";
+import logo1 from "../assets/logo.png";
 import texts from "../language/text";
 import { Menu, X, ChevronDown } from "lucide-react"; 
 
@@ -28,6 +29,7 @@ export default function Navbar() {
   { key: 'whyOpex', href: '/why OPEX', label: texts[lang]?.whyOpexTitle || (lang === 'ar' ? 'لماذا أوبكس' : 'Why OPEX') },
   { key: 'aboutUs', href: '/about us', label: texts[lang]?.aboutUs || (lang === 'ar' ? 'عن الشركة' : 'About Us') },
   { key: 'opex-academy', href: '/OpexAcademy', label: texts[lang]?.opexacademy || (lang === 'ar' ? 'أكاديمية OPEX' : 'OPEX Academy') },
+  { key: 'joinus', href: '/JoinUs', label: texts[lang]?.joinus || (lang === 'ar' ? 'انضم إلينا' : 'Join Us') },
   { key: 'contact', href: '/contact', label: texts[lang]?.contact || (lang === 'ar' ? 'تواصل معنا' : 'Contact Us') },
   ];
 
@@ -51,7 +53,7 @@ export default function Navbar() {
   <div className="flex items-center md:hidden">
     <div className="w-12 h-12 overflow-hidden">
       <img 
-        src={logo} 
+        src={logo1} 
         alt="O" 
         className="w-full h-full object-cover" 
       />
