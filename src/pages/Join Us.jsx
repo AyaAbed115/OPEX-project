@@ -13,6 +13,14 @@ export default function JoinUs() {
     { id: "investor", label: texts[lang].joinUs.investor, icon: "💼" }
   ];
 
+  // دالة لفتح تطبيق البريد الإلكتروني
+  const handleEmailClick = () => {
+    const subject = `طلب انضمام كـ ${joinOptions.find(opt => opt.id === selectedOption)?.label}`;
+    const body = `أنا مهتم بالانضمام إلى شركتكم كـ ${joinOptions.find(opt => opt.id === selectedOption)?.label}.\n\nأرجو التواصل معي للتفاصيل.`;
+    
+    window.location.href = `mailto:Info@opex-ksa.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -68,20 +76,20 @@ export default function JoinUs() {
         >
           {/* Main Title */}
           <motion.h1
-        className="text-5xl md:text-6xl text-center font-bold text-white mb-9 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
-        initial={{ opacity: 0, y: -30 }}
-         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-        {texts[lang].joinUs.title}
-        </motion.h1>
+            className="text-5xl md:text-6xl text-center font-bold text-white mb-9 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {texts[lang].joinUs.title}
+          </motion.h1>
                     
-        <motion.div
-        className="h-1.5 bg-gradient-to-r from-[#cc5308] to-orange-400 rounded-full mx-auto w-32 mb-12"
-        initial={{ width: 0 }}
-        whileInView={{ width: 128 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-                    />
+          <motion.div
+            className="h-1.5 bg-gradient-to-r from-[#cc5308] to-orange-400 rounded-full mx-auto w-32 mb-12"
+            initial={{ width: 0 }}
+            whileInView={{ width: 128 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          />
 
           {/* Subtitle */}
           <motion.p
@@ -146,13 +154,13 @@ export default function JoinUs() {
                 <p className="text-white/70 mb-4 text-lg">
                   {texts[lang].joinUs.contactUs}
                 </p>
-                <motion.a
-                  href="Info@opex-ksa.com"
+                <motion.button
+                  onClick={handleEmailClick}
                   whileHover={{ scale: 1.05 }}
                   className="inline-block bg-gradient-to-r from-[#cc5308] to-orange-500 text-white text-xl font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Info@opex-ksa.com
-                </motion.a>
+                </motion.button>
                 <p className="text-white/60 mt-4 text-sm">
                   {texts[lang].joinUs.responseTime}
                 </p>
@@ -198,14 +206,14 @@ export default function JoinUs() {
               className="flex justify-center gap-4"
               variants={containerVariants}
             >
-              <motion.a
-                href="mailto:careers@yourcompany.com"
+              <motion.button
+                onClick={handleEmailClick}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#cc5308] text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 {texts[lang].joinUs.cta.sendEmail}
-              </motion.a>
+              </motion.button>
               <motion.a
                 href="/contact"
                 whileHover={{ scale: 1.05 }}
