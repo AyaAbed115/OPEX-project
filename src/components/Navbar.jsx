@@ -11,7 +11,6 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Scroll effect
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
@@ -43,71 +42,66 @@ export default function Navbar() {
       <div className="lg:max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 md:max-w-6xl lg:text-[16px]">
         <div className={`flex items-center justify-between w-full ${lang === "ar" ? "flex-row-reverse" : ""}`}>
   
-  {/* Logo */}
-  <Link to="/" className="flex items-center hover:scale-105 transition-transform duration-300">
-    {/* Mobile */}
-    <div className="flex items-center md:hidden">
-      <div className="w-12 h-12 overflow-hidden">
-        <img src={logo1} alt="O" className="w-full h-full object-cover" />
-      </div>
-    </div>
-    {/* Desktop */}
-    <div className="hidden md:flex items-center">
-      <div className="w-30 h-12 rounded-xl overflow-hidden">
-        <img src={logo} alt="O" className="w-full h-full object-cover scale-110" />
-      </div>
-    </div>
-  </Link>
+          {/* Logo */}
+          <Link to="/" className="flex items-center hover:scale-105 transition-transform duration-300">
+            <div className="flex items-center md:hidden">
+              <div className="w-12 h-12 overflow-hidden">
+                <img src={logo1} alt="O" className="w-full h-full object-cover" />
+              </div>
+            </div>
+            <div className="hidden md:flex items-center">
+              <div className="w-30 h-12 rounded-xl overflow-hidden">
+                <img src={logo} alt="O" className="w-full h-full object-cover scale-110" />
+              </div>
+            </div>
+          </Link>
 
-  {/* Links in center */}
-  <ul className={`hidden md:flex items-center text-[18px] font-semibold ${
-  lang === "ar" ? "ml-auto" : "mr-auto"
-}`}>
-    {navItems.map((item) => (
-      <li key={item.key} className="whitespace-nowrap">
-        <NavLink
-          to={item.href}
-          className={({ isActive }) =>
-            `px-4 py-2 rounded-xl transition-all duration-300 ${
-              isActive ? "text-white bg-[#001533]" : "text-[#001533] hover:text-white hover:bg-white/20"
-            }`
-          }
-        >
-          {item.label || texts[lang][item.key]}
-        </NavLink>
-      </li>
-    ))}
-  </ul>
+          {/* Links in center - التصحيح هنا */}
+          <ul className={`hidden md:flex items-center text-[18px] font-semibold ${lang === "ar" ? "flex-row-reverse" : ""}`}>
+            {navItems.map((item) => (
+              <li key={item.key} className="whitespace-nowrap">
+                <NavLink
+                  to={item.href}
+                  className={({ isActive }) =>
+                    `px-4 py-2 rounded-xl transition-all duration-300 ${
+                      isActive ? "text-white bg-[#001533]" : "text-[#001533] hover:text-white hover:bg-white/20"
+                    }`
+                  }
+                >
+                  {item.label || texts[lang][item.key]}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
 
-  {/* Language Button */}
-  <button
-    onClick={toggleLang}
-    className="hidden md:flex px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl items-center gap-2 bg-white/20 backdrop-blur-sm bg-[#001533] text-[#f8fafa] border border-white/30 hover:bg-white hover:text-[#001533]"
-  >
-    <span className="flex items-center gap-2">
-      {texts[lang].langBtn}
-      <ChevronDown size={16} className={`transition-transform duration-300 ${lang === "ar" ? "rotate-180" : ""}`} />
-    </span>
-  </button>
+          {/* Language Button */}
+          <button
+            onClick={toggleLang}
+            className="hidden md:flex px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl items-center gap-2 bg-white/20 backdrop-blur-sm bg-[#001533] text-[#f8fafa] border border-white/30 hover:bg-white hover:text-[#001533]"
+          >
+            <span className="flex items-center gap-2">
+              {texts[lang].langBtn}
+              <ChevronDown size={16} className={`transition-transform duration-300 ${lang === "ar" ? "rotate-180" : ""}`} />
+            </span>
+          </button>
 
-  {/* Mobile Menu */}
-  <div className="md:hidden flex items-center gap-3">
-    <button
-      onClick={toggleLang}
-      className="relative w-10 h-10 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center text-white hover:bg-white/20 border border-white/30"
-    >
-      {shortLang}
-    </button>
+          {/* Mobile Menu */}
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              onClick={toggleLang}
+              className="relative w-10 h-10 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center text-white hover:bg-white/20 border border-white/30"
+            >
+              {shortLang}
+            </button>
 
-    <button
-      onClick={toggleMenu}
-      className="p-5 rounded-xl transition-all duration-300 transform hover:scale-110 active:scale-95 text-white hover:bg-white/20"
-    >
-      {menuOpen ? <X size={26} /> : <Menu size={26} />}
-    </button>
-  </div>
-</div>
-
+            <button
+              onClick={toggleMenu}
+              className="p-5 rounded-xl transition-all duration-300 transform hover:scale-110 active:scale-95 text-white hover:bg-white/20"
+            >
+              {menuOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
+          </div>
+        </div>
 
         {/* Mobile Menu Dropdown */}
         {menuOpen && (
