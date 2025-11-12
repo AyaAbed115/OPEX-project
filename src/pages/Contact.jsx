@@ -112,7 +112,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 variants={cardVariants}
                 whileHover="hover"
-                className="group relative bg-white/20 backdrop-blur-xl rounded-3xl border-2 border-white/20 p-8 text-center hover:border-[#cc5308]/50 hover:bg-[#cc5308]/10 transition-all duration-500 flex flex-col h-full"
+                className="group relative bg-white/10 backdrop-blur-xl rounded-3xl border-2 border-white/20 p-8 text-center hover:border-[#cc5308]/50 hover:bg-[#cc5308]/10 transition-all duration-500 flex flex-col h-full"
               >
                 {/* Card Glow Effect */}
                 <motion.div
@@ -204,7 +204,7 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="max-w-full mt-16 gap-8 text-white "
           >
-            <div className="bg-white/20 backdrop-blur-xl rounded-3xl border-2 border-white/20 p-8">
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl border-2 border-white/20 p-8">
               <h3 className="text-2xl font-bold text-[#cc5308] mb-4">
                 {lang === "ar" ? "معلومات إضافية" : "Additional Info"}
               </h3>
