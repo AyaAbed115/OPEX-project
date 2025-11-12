@@ -60,7 +60,9 @@ export default function Navbar() {
   </Link>
 
   {/* Links in center */}
-  <ul className="hidden md:flex items-center text-[18px] font-semibold">
+  <ul className={`hidden md:flex items-center text-[18px] font-semibold ${
+  lang === "ar" ? "ml-auto" : "mr-auto"
+}`}>
     {navItems.map((item) => (
       <li key={item.key} className="whitespace-nowrap">
         <NavLink
