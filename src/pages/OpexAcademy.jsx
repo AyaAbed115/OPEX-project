@@ -58,7 +58,7 @@ export default function OpexAcademy() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#cc5308]/10 to-orange-400/5"></div>
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <motion.h1
-            className="text-5xl text-center font-bold text-white mb-9 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
+            className="text-5xl md:text-6xl text-center font-bold text-white mb-9 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}

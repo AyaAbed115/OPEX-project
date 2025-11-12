@@ -41,7 +41,7 @@ export default function AboutUs() {
   <div className="w-full max-w-7xl mx-auto px-6 text-center">
     {/* Title */}
     <motion.h2
-      className="text-4xl md:text-5xl font-bold mb-12 text-white bg-gradient-to-r from-[#cc5308] to-orange-500 bg-clip-text text-transparent"
+      className="text-5xl md:text-6xl text-center font-bold text-white mb-9 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
       initial={{ opacity: 0, y: -30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
