@@ -64,7 +64,7 @@ export default function WhyOpex() {
         <div className="w-full max-w-7xl mx-auto px-6">
           {/* Title */}
           <motion.h1
-            className="text-5xl mt-20 md:text-6xl text-center font-bold text-white mb-9 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
+            className="text-5xl md:text-6xl text-center font-bold text-white mb-9 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
