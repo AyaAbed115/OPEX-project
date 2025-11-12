@@ -13,127 +13,105 @@ export default function Navbar() {
 
   // Scroll effect
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  // Navigation items used in desktop and mobile menus
   const navItems = [
-  { key: 'home', href: '/', label: texts[lang]?.home || (lang === 'ar' ? 'الصفحة الرئيسية' : 'Home') },
-  { key: 'services', href: '/services', label: texts[lang]?.services || (lang === 'ar' ? 'الخدمات' : 'Services') },
-  { key: 'whyOpex', href: '/why OPEX', label: texts[lang]?.whyOpexTitle || (lang === 'ar' ? 'لماذا أوبكس' : 'Why OPEX') },
-  { key: 'aboutUs', href: '/about us', label: texts[lang]?.aboutUs || (lang === 'ar' ? 'عن الشركة' : 'About Us') },
-  { key: 'opex-academy', href: '/OpexAcademy', label: texts[lang]?.opexacademy || (lang === 'ar' ? 'أكاديمية OPEX' : 'OPEX Academy') },
-  { key: 'joinus', href: '/JoinUs', label: texts[lang]?.joinus || (lang === 'ar' ? 'انضم إلينا' : 'Join Us') },
-  { key: 'contact', href: '/contact', label: texts[lang]?.contact || (lang === 'ar' ? 'تواصل معنا' : 'Contact Us') },
+    { key: 'home', href: '/', label: texts[lang]?.home || (lang === 'ar' ? 'الصفحة الرئيسية' : 'Home') },
+    { key: 'services', href: '/services', label: texts[lang]?.services || (lang === 'ar' ? 'الخدمات' : 'Services') },
+    { key: 'whyOpex', href: '/why OPEX', label: texts[lang]?.whyOpexTitle || (lang === 'ar' ? 'لماذا أوبكس' : 'Why OPEX') },
+    { key: 'aboutUs', href: '/about us', label: texts[lang]?.aboutUs || (lang === 'ar' ? 'عن الشركة' : 'About Us') },
+    { key: 'opex-academy', href: '/OpexAcademy', label: texts[lang]?.opexacademy || (lang === 'ar' ? 'أكاديمية OPEX' : 'OPEX Academy') },
+    { key: 'joinus', href: '/JoinUs', label: texts[lang]?.joinus || (lang === 'ar' ? 'انضم إلينا' : 'Join Us') },
+    { key: 'contact', href: '/contact', label: texts[lang]?.contact || (lang === 'ar' ? 'تواصل معنا' : 'Contact Us') },
   ];
 
-  // اختصار نص اللغة للموبايل
   const shortLang = lang === "ar" ? "ع" : "en";
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-[#cc5308]/50 backdrop-blur-md shadow-2xl py-2' 
+        isScrolled
+          ? 'bg-[#cc5308]/50 backdrop-blur-md shadow-2xl py-2'
           : 'bg-[#cc5308] py-3 shadow-lg'
       } ${lang === "ar" ? "flex-row-reverse" : ""}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex justify-between items-center ${lang === "ar" ? "flex-row-reverse" : ""}`}>
-          
-          {/* Logo Section */}
-        <Link to="/" className="flex items-center hover:scale-105 transition-transform duration-300">
-  {/* Mobile Logo - Gear + PEX */}
-  <div className="flex items-center md:hidden">
-    <div className="w-12 h-12 overflow-hidden">
-      <img 
-        src={logo1} 
-        alt="O" 
-        className="w-full h-full object-cover" 
-      />
+      <div className="lg:max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 md:max-w-6xl lg:text-[16px]">
+        <div className={`flex items-center justify-between w-full ${lang === "ar" ? "flex-row-reverse" : ""}`}>
+  
+  {/* Logo */}
+  <Link to="/" className="flex items-center hover:scale-105 transition-transform duration-300">
+    {/* Mobile */}
+    <div className="flex items-center md:hidden">
+      <div className="w-12 h-12 overflow-hidden">
+        <img src={logo1} alt="O" className="w-full h-full object-cover" />
+      </div>
     </div>
-  </div>
+    {/* Desktop */}
+    <div className="hidden md:flex items-center">
+      <div className="w-30 h-12 rounded-xl overflow-hidden">
+        <img src={logo} alt="O" className="w-full h-full object-cover scale-110" />
+      </div>
+    </div>
+  </Link>
 
-  {/* Desktop Logo - Full OPEX with gear as O */}
-<div className="hidden md:flex items-center">
-  <div className="w-30 h-12 rounded-xl overflow-hidden">
-    <img 
-      src={logo} 
-      alt="O" 
-      className="w-full h-full object-cover scale-110" 
-    />
+  {/* Links in center */}
+  <ul className="hidden md:flex items-center text-[18px] font-semibold">
+    {navItems.map((item) => (
+      <li key={item.key} className="whitespace-nowrap">
+        <NavLink
+          to={item.href}
+          className={({ isActive }) =>
+            `px-4 py-2 rounded-xl transition-all duration-300 ${
+              isActive ? "text-white bg-[#001533]" : "text-[#001533] hover:text-white hover:bg-white/20"
+            }`
+          }
+        >
+          {item.label || texts[lang][item.key]}
+        </NavLink>
+      </li>
+    ))}
+  </ul>
+
+  {/* Language Button */}
+  <button
+    onClick={toggleLang}
+    className="hidden md:flex px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl items-center gap-2 bg-white/20 backdrop-blur-sm bg-[#001533] text-[#f8fafa] border border-white/30 hover:bg-white hover:text-[#001533]"
+  >
+    <span className="flex items-center gap-2">
+      {texts[lang].langBtn}
+      <ChevronDown size={16} className={`transition-transform duration-300 ${lang === "ar" ? "rotate-180" : ""}`} />
+    </span>
+  </button>
+
+  {/* Mobile Menu */}
+  <div className="md:hidden flex items-center gap-3">
+    <button
+      onClick={toggleLang}
+      className="relative w-10 h-10 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center text-white hover:bg-white/20 border border-white/30"
+    >
+      {shortLang}
+    </button>
+
+    <button
+      onClick={toggleMenu}
+      className="p-5 rounded-xl transition-all duration-300 transform hover:scale-110 active:scale-95 text-white hover:bg-white/20"
+    >
+      {menuOpen ? <X size={26} /> : <Menu size={26} />}
+    </button>
   </div>
 </div>
-</Link>
 
-{/* Desktop Navigation */}
-<ul className={`hidden md:flex gap-6 lg:gap-5 text-[18px] font-semibold ${lang === "ar" ? "flex-row-reverse" : ""}`}>
-  {navItems.map((item) => (
-    <li key={item.key}>
-      <NavLink
-        to={item.href}
-        className={({ isActive }) =>
-          `relative px-4 py-2 rounded-xl transition-all duration-300 group ${
-            isActive ? "text-white bg-[#001533]" : "text-[#001533] hover:text-white hover:bg-white/20"
-          }`
-        }
-      >
-        {item.label || texts[lang][item.key]}
-        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#001533] transition-all duration-300  group-hover:left-1/5"></span>
-      </NavLink>
-    </li>
-  ))}
-</ul>
-
-
-          {/* Language Toggle & Mobile Menu Button */}
-          <div className={`flex items-center gap-3 ${lang === "ar" ? "flex-row-reverse" : ""}`}>
-            {/* Language Toggle Button */}
-            {/* Desktop Version */}
-            <button 
-              onClick={toggleLang}
-              className="hidden md:flex relative px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl items-center gap-2 group overflow-hidden bg-white/20 backdrop-blur-sm bg-[#001533] text-[#f8fafa] border border-white/30 hover:bg-white hover:text-[#001533]"
-            >
-              <span className="flex items-center gap-2">
-                {texts[lang].langBtn}
-                <ChevronDown 
-                  size={16} 
-                  className={`transition-transform duration-300 ${lang === "ar" ? "rotate-180" : ""}`} 
-                />
-              </span>
-            </button>
-
-            {/* Mobile Version */}
-            <button 
-              onClick={toggleLang}
-              className="md:hidden relative w-10 h-10 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center text-white hover:bg-white/20 border border-white/30"
-            >
-              {shortLang}
-            </button>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMenu}
-              className="md:hidden p-2.5 rounded-xl transition-all duration-300 transform hover:scale-110 active:scale-95 text-white hover:bg-white/20"
-            >
-              {menuOpen ? <X size={26} /> : <Menu size={26} />}
-            </button>
-          </div>
-        </div>
 
         {/* Mobile Menu Dropdown */}
         {menuOpen && (
           <div
-            className={`
-              absolute top-full left-0 right-0 mt-2 bg-[#001533]/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-[#cc5308]/30 mx-4 overflow-hidden
-              ${lang === "ar" ? "text-right" : "text-left"}
-            `}
+            className={`absolute top-full left-0 right-0 mt-2 bg-[#001533]/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-[#cc5308]/30 mx-4 overflow-hidden
+              ${lang === "ar" ? "text-right" : "text-left"}`}
           >
             <div className="p-4 space-y-3">
               {navItems.map((item, index) => (
@@ -141,10 +119,8 @@ export default function Navbar() {
                   key={item.key}
                   to={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block px-4 py-3 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-transparent text-[#cc5308] hover:bg-white hover:text-[#cc5308] hover:border-white"
-                  style={{ 
-                    animationDelay: `${index * 100}ms`,
-                  }}
+                  className="block px-4 py-3 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-transparent text-[#cc5308] hover:bg-white hover:text-[#cc5308] hover:border-white whitespace-nowrap"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {item.label || texts[lang][item.key]}
                 </Link>
