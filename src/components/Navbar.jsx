@@ -11,6 +11,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Scroll effect
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
@@ -44,11 +45,13 @@ export default function Navbar() {
   
           {/* Logo */}
           <Link to="/" className="flex items-center hover:scale-105 transition-transform duration-300">
+            {/* Mobile */}
             <div className="flex items-center md:hidden">
               <div className="w-12 h-12 overflow-hidden">
                 <img src={logo1} alt="O" className="w-full h-full object-cover" />
               </div>
             </div>
+            {/* Desktop */}
             <div className="hidden md:flex items-center">
               <div className="w-30 h-12 rounded-xl overflow-hidden">
                 <img src={logo} alt="O" className="w-full h-full object-cover scale-110" />
@@ -68,7 +71,7 @@ export default function Navbar() {
                     }`
                   }
                 >
-                  {item.label || texts[lang][item.key]}
+                  {item.label}
                 </NavLink>
               </li>
             ))}
@@ -118,7 +121,7 @@ export default function Navbar() {
                   className="block px-4 py-3 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-2 border-transparent text-[#cc5308] hover:bg-white hover:text-[#cc5308] hover:border-white whitespace-nowrap"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {item.label || texts[lang][item.key]}
+                  {item.label}
                 </Link>
               ))}
             </div>
