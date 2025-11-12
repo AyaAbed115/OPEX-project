@@ -268,36 +268,19 @@ timeline: [
           indicators: ["الاحتفاظ بالموظفين", "معدل الاستخدام", "تغطية الكفاءات"]
         }
       ],
-      titleContact: "تواصل معنا",
-      desc: "من فضلك املأ النموذج أدناه وسنعاود الاتصال بك قريبًا.",
-      name: "الاسم",
-      phone: "رقم الموبايل",
-      email: "البريد الإلكتروني",
-      address: "العنوان",
-      message: "الرسالة أو الاستفسار",
-      send: "إرسال",
-      success: "تم إرسال رسالتك بنجاح!",
-      fail: "حدث خطأ أثناء الإرسال، حاول مرة أخرى.",
-      contactInfo: [
-  {
-    icon: "📧",
-    title: "راسلنا",
-    details: "Info@opex-ksa.com",
-    description: "أرسل لنا بريدًا إلكترونيًا في أي وقت"
-  },
-  {
-    icon: "📞",
-    title: "اتصل بنا",
-    details: "+966 58 040 4997",
-    description: "متاح خلال ساعات العمل"
-  },
-  {
-    icon: "📍",
-    title: "زورنا",
-    details: "مقر أوبكس السعودية",
-    description: "ينبع، المملكة العربية السعودية"
-  }
-],
+         titleContact: "اتصل بنا",
+    contactDesc: "نحن هنا للإجابة على استفساراتك وتقديم الدعم الذي تحتاجه. تواصل معنا بالطريقة التي تناسبك.",
+    contactEmail: "راسلنا",
+    contactEmailDesc: "أرسل لنا بريدًا إلكترونيًا في أي وقت",
+    contactPhone: "اتصل بنا",
+    contactPhoneDesc: "متاح خلال ساعات العمل", 
+    contactLocation: "زورنا",
+    contactLocationDetail: "مقر أوبكس السعودية",
+    contactLocationDesc: "ينبع، المملكة العربية السعودية",
+    quickResponseTitle: "رد سريع على استفساراتك",
+    quickResponseDesc: "نحن نرد على جميع الاستفسارات خلال 24 ساعة في أيام العمل",
+    sendEmailAction: "إرسال بريد إلكتروني",
+    callNowAction: "اتصال فوري",
 academyTitle: "أكاديمية OPEX",
 academyHero: "تسعى OPEX Academy إلى بناء جيل من الكفاءات الصناعية الجاهزة للعمل والقيادة وريادة الأعمال في قطاع التشغيل والصيانة والخدمات الصناعية، عبر برامج تدريبية تطبيقية مبنية على احتياجات السوق الصناعي في المملكة والمنطقة.",
     academyVision: "أن تكون الأكاديمية المرجع الأول في تدريب وتأهيل الكوادر الصناعية في العالم العربي، وربط التدريب بالوظائف والفرص الصناعية الفعلية.",
@@ -864,35 +847,18 @@ title: "Key Performance Indicators (KPIs)",
         }
       ],
       titleContact: "Contact Us",
-      desc: "Please fill out the form below and we’ll get back to you soon.",
-      name: "Full Name",
-      phone: "Phone Number",
-      email: "Email Address",
-      address: "Address",
-      message: "Message or Inquiry",
-      send: "Send Message",
-      success: "Your message has been sent successfully!",
-      fail: "Something went wrong, please try again.",
-      contactInfo: [
-  {
-    icon: "📧",
-    title: "Email Us",
-    details: "Info@opex-ksa.com",
-    description: "Send us an email anytime"
-  },
-  {
-    icon: "📞", 
-    title: "Call Us",
-    details: "+966 58 040 4997",
-    description: "Available during business hours"
-  },
-  {
-    icon: "📍",
-    title: "Visit Us",
-    details: "OPEX KSA Headquarters",
-    description: "Yanbu, Saudi Arabia"
-  }
-],
+    contactDesc: "We're here to answer your questions and provide the support you need. Contact us in any way that suits you.",
+    contactEmail: "Email Us",
+    contactEmailDesc: "Send us an email anytime",
+    contactPhone: "Call Us", 
+    contactPhoneDesc: "Available during business hours",
+    contactLocation: "Visit Us",
+    contactLocationDetail: "OPEX KSA Headquarters",
+    contactLocationDesc: "Yanbu, Saudi Arabia",
+    quickResponseTitle: "Quick Response to Your Inquiries",
+    quickResponseDesc: "We respond to all inquiries within 24 hours on business days",
+    sendEmailAction: "Send Email",
+    callNowAction: "Call Now",
 academyTitle: "OPEX Academy",
 academyHero: "OPEX Academy aims to build a generation of industrial competencies ready for work, leadership, and entrepreneurship in the operations, maintenance, and industrial services sector, through applied training programs based on the needs of the industrial market in the Kingdom and the region.",
     academyVision: "To be the primary reference in training and qualifying industrial cadres in the Arab world, linking training with actual industrial jobs and opportunities.",

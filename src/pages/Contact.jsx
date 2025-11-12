@@ -1,158 +1,231 @@
-import React, { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import emailjs from "@emailjs/browser"; // لازم تنصبيه: npm install @emailjs/browser
+import { motion } from "framer-motion";
 import { useLanguage } from "../context/useLanguage";
 import texts from "../language/text";
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  },
+  hover: { 
+    y: -10,
+    transition: { duration: 0.3 }
+  },
+};
 
 export default function Contact() {
   const { lang } = useLanguage();
   const t = texts[lang];
-  const isArabic = lang === "ar";
 
-  const form = useRef();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState("");
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setStatus("");
-
-    emailjs
-      .sendForm(
-        "service_86ng86r", // استبدليها بـ Service ID بتاعك من EmailJS
-        "template_0behhb9", // استبدليها بـ Template ID بتاعك من EmailJS
-        form.current,
-        "NkFKyq_K3sNuiPvcl" // استبدليها بـ Public Key بتاعك من EmailJS
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setStatus("success");
-          e.target.reset();
-        },
-        (error) => {
-          console.log(error.text);
-          setStatus("fail");
-        }
-      )
-      .finally(() => setIsSubmitting(false));
-  };
+  const contactMethods = [
+    {
+      title: t.contactEmail,
+      description: t.contactEmailDesc,
+      details: "Info@opex-ksa.com",
+      icon: "✉️",
+      link: "mailto:Info@opex-ksa.com",
+    },
+    {
+      title: t.contactPhone,
+      description: t.contactPhoneDesc,
+      details: "+966 58 040 4997",
+      icon: "📞",
+      link: "tel:+966580404997",
+    },
+    {
+      title: t.contactLocation,
+      description: t.contactLocationDesc,
+      details: t.contactLocationDetail,
+      icon: "📍",
+      link: "#",
+    },
+  ];
 
   return (
-    <div dir={isArabic ? "rtl" : "ltr"} className="min-h-screen bg-gradient-to-b from-[#001533] to-[#000c26] py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <motion.div initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t.titleContact}</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#cc5308] to-orange-500 mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">{t.desc}</p>
-        </motion.div>
+    <div className="bg-gradient-to-b from-[#001533] to-[#000c26] min-h-screen">
+      {/* Main Contact Section */}
+      <section
+        className="relative border-t border-white/10 pt-12 pb-28 bg-gradient-to-b from-[#001533] to-[#000c26] text-white overflow-hidden"
+        dir={lang === "ar" ? "rtl" : "ltr"}
+      >
+        {/* Background Animated Elements */}
+        <div className="absolute inset-0 overflow-hidden -z-5">
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-6 h-6 bg-[#cc5308] rounded-full"
+            animate={{ scale: [1, 1.8, 1], opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute bottom-1/3 right-1/3 w-8 h-8 bg-orange-400 rounded-full"
+            animate={{ scale: [1, 2.2, 1], opacity: [0.2, 0.7, 0.2] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          />
+          <motion.div
+            className="absolute top-3/4 left-3/4 w-4 h-4 bg-orange-300 rounded-full"
+            animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Info */}
-          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="lg:col-span-1 space-y-8">
-            {texts[lang].contactInfo.map((item, i) => (
-              <motion.div key={i} variants={itemVariants} whileHover={{ scale: 1.03, y: -5 }} className="bg-white/70 rounded-[25px] border-2 border-white/70 p-6 hover:shadow-xl transition-all duration-300 group">
-                <div className="flex items-start space-x-4 rtl:space-x-reverse">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#cc5308] to-orange-500 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">
-                    {item.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-lg text-[#cc5308] font-semibold mb-1">{item.details}</p>
-                    <p className="text-[#001533] font-bold text-sm">{item.description}</p>
-                  </div>
-                </div>
-              </motion.div>
+        <div className="w-full max-w-7xl mx-auto px-6">
+          {/* Title */}
+          <motion.h1
+            className="text-5xl md:text-6xl text-center font-bold text-white mb-9 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {t.titleContact}
+          </motion.h1>
+
+          <motion.div
+            className="h-1.5 bg-gradient-to-r from-[#cc5308] to-orange-400 rounded-full mx-auto w-32 mb-12"
+            initial={{ width: 0 }}
+            whileInView={{ width: 128 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          />
+
+          {/* Contact Cards */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {contactMethods.map((item, i) => (
+              <motion.a
+                key={i}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={cardVariants}
+                whileHover="hover"
+                className="group relative bg-white/20 backdrop-blur-xl rounded-3xl border-2 border-white/20 p-8 text-center hover:border-[#cc5308]/50 hover:bg-[#cc5308]/10 transition-all duration-500 flex flex-col h-full"
+              >
+                {/* Card Glow Effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-[#cc5308] to-orange-400 rounded-3xl blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+                  animate={{ scale: [1, 1.02, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                />
+
+                {/* Accent circle */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-[#cc5308] to-orange-400 rounded-full shadow-lg" />
+
+                {/* Animated Background Pattern */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-[#cc5308]/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  animate={{ opacity: [0.1, 0.2, 0.1] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
+
+                {/* Icon */}
+                <motion.div 
+                  className="w-20 h-20 bg-gradient-to-br from-[#cc5308] to-orange-400 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-2xl mx-auto"
+                  whileHover={{ scale: 1.1, rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {item.icon}
+                </motion.div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-4 relative z-10 group-hover:text-orange-200 transition-colors duration-300">
+                  {item.title}
+                </h3>
+
+                {/* Details */}
+                <p className="text-lg font-semibold text-white/90 mb-4">{item.details}</p>
+
+                {/* Description */}
+                <p className="text-white/70 text-base leading-relaxed relative z-10 flex-grow">
+                  {item.description}
+                </p>
+
+                {/* Floating Elements */}
+                <motion.div
+                  className="absolute -top-2 -right-2 w-4 h-4 bg-[#cc5308] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  animate={{ scale: [1, 1.5, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                />
+                <motion.div
+                  className="absolute -bottom-2 -left-2 w-3 h-3 bg-orange-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 + 0.5 }}
+                />
+              </motion.a>
             ))}
-
-            {/* Quick Actions */}
-            <motion.div variants={itemVariants} className="bg-white/70 rounded-[25px] border-2 border-white/70 p-6 shadow-lg border-gray-100">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{isArabic ? "اتصل بنا مباشرة" : "Quick Actions"}</h3>
-              <div className="space-y-3">
-                <a href="tel:+966580404997" className="flex items-center justify-center w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors duration-300">
-                  📞 {isArabic ? "اتصال فوري" : "Call Now"}
-                </a>
-                <a href="mailto:ayaabed115@gmail.com" className="flex items-center justify-center w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-300">
-                  ✉️ {isArabic ? "إرسال بريد" : "Send Email"}
-                </a>
-              </div>
-            </motion.div>
           </motion.div>
 
-          {/* Contact Form */}
-          <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="lg:col-span-2">
-            <div className="bg-white/70 rounded-[25px] border-2 border-white/70 overflow-hidden">
-              <div className="p-8 md:p-12">
-                <h2 className="text-3xl font-bold text-[#001533] mb-2">{isArabic ? "أرسل لنا رسالة" : "Send Us a Message"}</h2>
-                <p className="text-[#001533] mb-8">{isArabic ? "سنكون سعداء بالتواصل معك والرد على استفساراتك" : "We'd love to hear from you and answer your questions"}</p>
+          {/* Quick Response Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-20 bg-gradient-to-r from-[#cc5308] to-orange-500 rounded-3xl p-10 text-center text-white shadow-2xl backdrop-blur-sm border border-white/20"
+          >
+            <h2 className="text-3xl font-bold mb-4">{t.quickResponseTitle}</h2>
+            <p className="text-lg mb-8 opacity-90">{t.quickResponseDesc}</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <motion.a
+                href="mailto:Info@opex-ksa.com"
+                className="bg-white text-[#cc5308] font-bold py-3 px-8 rounded-xl hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {t.sendEmailAction}
+              </motion.a>
+              <motion.a
+                href="tel:+966580404997"
+                className="border-2 border-white text-white font-bold py-3 px-8 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {t.callNowAction}
+              </motion.a>
+            </div>
+          </motion.div>
 
-                <form ref={form} onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-[#001533] mb-2">{t.name} *</label>
-                      <input type="text" name="name" required className="w-full border border-gray-300 rounded-xl p-4 focus:ring-2 focus:ring-[#cc5308] focus:border-transparent outline-none transition-all duration-300 hover:border-gray-400" placeholder={t.name} />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-[#001533] mb-2">{t.phone} *</label>
-                      <input type="tel" name="phone" required className="w-full border border-gray-300 rounded-xl p-4 focus:ring-2 focus:ring-[#cc5308] focus:border-transparent outline-none transition-all duration-300 hover:border-gray-400" placeholder={t.phone} />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-[#001533] mb-2">{t.email} *</label>
-                    <input type="email" name="email" required className="w-full border border-gray-300 rounded-xl p-4 focus:ring-2 focus:ring-[#cc5308] focus:border-transparent outline-none transition-all duration-300 hover:border-gray-400" placeholder={t.email} />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-[#001533] mb-2">{t.address}</label>
-                    <input type="text" name="address" className="w-full border border-gray-300 rounded-xl p-4 focus:ring-2 focus:ring-[#cc5308] focus:border-transparent outline-none transition-all duration-300 hover:border-gray-400" placeholder={t.address} />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-[#001533] mb-2">{t.message} *</label>
-                    <textarea name="message" rows="5" required className="w-full border border-gray-300 rounded-xl p-4 focus:ring-2 focus:ring-[#cc5308] focus:border-transparent outline-none transition-all duration-300 hover:border-gray-400 resize-none" placeholder={t.message}></textarea>
-                  </div>
-
-                  <motion.button type="submit" disabled={isSubmitting} whileHover={{ scale: isSubmitting ? 1 : 1.02 }} whileTap={{ scale: isSubmitting ? 1 : 0.98 }} className="w-full bg-gradient-to-r from-[#cc5308] to-orange-500 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 rtl:space-x-reverse">
-                    {isSubmitting ? (
-                      <>
-                        <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="w-5 h-5 border-2 border-white border-t-transparent rounded-full" />
-                        <span>{isArabic ? "جاري الإرسال..." : "Sending..."}</span>
-                      </>
-                    ) : (
-                      <span>{t.send}</span>
-                    )}
-                  </motion.button>
-                </form>
-
-                <AnimatePresence>
-                  {status === "success" && <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="mt-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-center">✅ {isArabic ? "تم إرسال رسالتك بنجاح! سنتواصل معك قريباً." : "Your message has been sent successfully! We'll contact you soon."}</motion.div>}
-                  {status === "fail" && <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="mt-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-center">❌ {isArabic ? "حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى." : "An error occurred while sending. Please try again."}</motion.div>}
-                </AnimatePresence>
+          {/* Additional Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="max-w-full mt-16 gap-8 text-white "
+          >
+            <div className="bg-white/20 backdrop-blur-xl rounded-3xl border-2 border-white/20 p-8">
+              <h3 className="text-2xl font-bold text-[#cc5308] mb-4">
+                {lang === "ar" ? "معلومات إضافية" : "Additional Info"}
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-[#cc5308] rounded-full"></div>
+                  <span>{lang === "ar" ? "رد سريع خلال 24 ساعة" : "Quick response within 24 hours"}</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-[#cc5308] rounded-full"></div>
+                  <span>{lang === "ar" ? "دعم فني متخصص" : "Specialized technical support"}</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-[#cc5308] rounded-full"></div>
+                  <span>{lang === "ar" ? "استشارات مجانية" : "Free consultations"}</span>
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
-
-        {/* Bottom Decoration */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="flex justify-center space-x-3 mt-16">
-          {[...Array(3)].map((_, i) => (
-            <motion.div key={i} className="w-2 h-2 bg-[#cc5308] rounded-full" animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }} />
-          ))}
-        </motion.div>
-      </div>
+      </section>
     </div>
   );
 }
