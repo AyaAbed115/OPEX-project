@@ -54,7 +54,7 @@ export default function OpexAcademy() {
     const subject = "تسجيل اهتمام في برامج OPEX Academy";
     const body = `أرغب في التسجيل في برامج OPEX Academy التدريبية.\n\nالبيانات الشخصية:\n- الاسم: \n- البريد الإلكتروني: \n- رقم الهاتف: \n- مجال الاهتمام: \n\nأرجو التواصل معي للمزيد من المعلومات.`;
     
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=ayaabed115@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=Info@opex-ksa.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     window.open(gmailUrl, '_blank', 'noopener,noreferrer');
   };
