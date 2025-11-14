@@ -13,12 +13,15 @@ export default function JoinUs() {
     { id: "investor", label: texts[lang].joinUs.investor, icon: "💼" }
   ];
 
-  // دالة لفتح تطبيق البريد الإلكتروني
+  // دالة لفتح Gmail مباشرة
   const handleEmailClick = () => {
     const subject = `طلب انضمام كـ ${joinOptions.find(opt => opt.id === selectedOption)?.label}`;
     const body = `أنا مهتم بالانضمام إلى شركتكم كـ ${joinOptions.find(opt => opt.id === selectedOption)?.label}.\n\nأرجو التواصل معي للتفاصيل.`;
     
-    window.location.href = `mailto:Info@opex-ksa.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // رابط Gmail المباشر مع الموضوع والمحتوى
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=Info@opex-ksa.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
   };
 
   const containerVariants = {

@@ -49,6 +49,16 @@ export default function OpexAcademy() {
     setExpandedCourse(expandedCourse === courseId ? null : courseId);
   };
 
+  // دالة لفتح Gmail مباشرة
+  const handleRegisterInterest = () => {
+    const subject = "تسجيل اهتمام في برامج OPEX Academy";
+    const body = `أرغب في التسجيل في برامج OPEX Academy التدريبية.\n\nالبيانات الشخصية:\n- الاسم: \n- البريد الإلكتروني: \n- رقم الهاتف: \n- مجال الاهتمام: \n\nأرجو التواصل معي للمزيد من المعلومات.`;
+    
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=ayaabed115@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+  };
+
   const categories = texts[lang].academyCategories;
 
   return (
@@ -251,7 +261,7 @@ export default function OpexAcademy() {
                   <strong className="text-[#cc5308]">
                     {lang === "ar" ? "المخرجات المتوقعة:" : "Expected Outcomes:"}
                   </strong>
-                  <p className="text-white/80 mt-1">{course.outcomes}</p>
+                    <p className="text-white/80 mt-1">{course.outcomes}</p>
                 </div>
               </motion.div>
             )}
@@ -296,21 +306,19 @@ export default function OpexAcademy() {
               whileTap={{ scale: 0.95 }}
               className="inline-block"
             >
-              <a
-                href={texts[lang].googleSheetLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-[#cc5308] to-orange-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3"
+              <button
+                onClick={handleRegisterInterest}
+                className="bg-gradient-to-r from-[#cc5308] to-orange-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3 cursor-pointer"
               >
                 <span>📝</span>
                 {lang === "ar" ? "سجل اهتمامك الآن" : "Register Interest Now"}
-              </a>
+              </button>
             </motion.div>
 
             <p className="text-white/60 text-sm mt-4">
               {lang === "ar" 
-                ? "سيتم توجيهك إلى نموذج جوجل لتسجيل بياناتك"
-                : "You will be redirected to Google Form to register your information"
+                ? "سيتم فتح نافذة جديدة لكتابة بريد إلكتروني"
+                : "A new window will open to compose an email"
               }
             </p>
           </motion.div>

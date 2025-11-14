@@ -28,13 +28,16 @@ export default function Contact() {
   const { lang } = useLanguage();
   const t = texts[lang];
 
+  // رابط Gmail المباشر
+  const gmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=Info@opex-ksa.com";
+
   const contactMethods = [
     {
       title: t.contactEmail,
       description: t.contactEmailDesc,
       details: "Info@opex-ksa.com",
       icon: "✉️",
-      link: "mailto:Info@opex-ksa.com",
+      link: gmailLink, // تم التغيير هنا
     },
     {
       title: t.contactPhone,
@@ -179,7 +182,9 @@ export default function Contact() {
             <p className="text-lg mb-8 opacity-90">{t.quickResponseDesc}</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <motion.a
-                href="mailto:Info@opex-ksa.com"
+                href={gmailLink} // تم التغيير هنا
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white text-[#cc5308] font-bold py-3 px-8 rounded-xl hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

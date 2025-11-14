@@ -12,9 +12,10 @@ export default function Footer() {
     window.open("tel:+966580404997");
   };
 
-  // دالة لفتح تطبيق البريد الإلكتروني
+  // دالة لفتح Gmail مباشرة بدون موضوع أو محتوى
   const handleEmailClick = () => {
-    window.open("mailto:a.alshahrani@opex-ksa.com");
+    const gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=Info@opex-ksa.com";
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
